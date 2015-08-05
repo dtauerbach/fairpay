@@ -1,9 +1,12 @@
 var React = require('react');
+var QuestionsView = require('../questions/View.jsx');
 
 module.exports = React.createClass({
   render: function () {
     return (
-      <h1>Hello FP world!</h1>
+      <div id="content">
+        <QuestionsView />
+      </div>
     );
   }
 });
