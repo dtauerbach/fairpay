@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: blabber_development
+  username: fairpay
+  password: [INSERT PASSWORD]
+  pool: 5
