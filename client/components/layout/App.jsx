@@ -1,11 +1,18 @@
 var React = require('react');
 var Reqwest = require('reqwest');
-var QuestionsView = require('../questions/View.jsx');
+var Menu = require('./Menu.jsx');
+var Router = require('react-router');
+var RouteHandler = Router.RouteHandler;
 
 module.exports = React.createClass({
   getDefaultProps: function() {
       return {origin: process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : ''};
   },
+
+  getInitialState: function() {
+      return {showMenu: false};
+  },
+
   readFromAPI: function(url, successFunction) {
     Reqwest({
       url: url,
@@ -19,10 +26,16 @@ module.exports = React.createClass({
       }
     });
   },
+
   render: function () {
+    var menu = this.state.showMenu ? 'show-menu' : 'hide-menu';
+
     return (
-      <div id="content">
-        <QuestionsView origin={this.props.origin} readFromAPI={this.readFromAPI} />
+      <div id="app" className={menu}>
+        <Menu sendMenuClick={this.handleMenuClick} />
+        <div id="content">
+          <RouteHandler origin={this.props.origin} readFromAPI={this.readFromAPI} />
+        </div>
       </div>
     );
   }
