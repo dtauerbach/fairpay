@@ -11,8 +11,9 @@ module.exports = React.createClass({
           <div className="pure-menu pure-menu-open">
             <span className="pure-menu-heading">Menu Heading</span>
             <ul>
-              <li><Link to="questions">Questions</Link></li>
-              <li><Link to="sharing">Sharing</Link></li>
+              <li><Link to="profile">My Profile</Link></li>
+              <li><Link to="data">Compensation Data</Link></li>
+              <li><Link to="about">About</Link></li>
             </ul>
           </div>
         </div>
