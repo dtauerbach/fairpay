@@ -2,6 +2,8 @@ var React = require('react');
 var Router = require('react-router');
 var App = require('../components/layout/App.jsx');
 var ProfileView = require('../components/profile/ProfileView.jsx');
+var QuestionContentView = require('../components/profile/questions/QuestionContentView.jsx');
+var SharingContentView = require('../components/profile/sharing/SharingContentView.jsx');
 var CompensationDataView = require('../components/data/CompensationDataView.jsx');
 var AboutView = require('../components/about/AboutView.jsx');
 
@@ -11,7 +13,10 @@ var Route = Router.Route;
 module.exports = (
   <Route name="app" path="/" handler={App}>
     <Route name="data" handler={CompensationDataView} />
-    <Route name="profile" handler={ProfileView} />
+    <Route name="profile" handler={ProfileView}>
+        <Route name="questions" handler={QuestionContentView} />
+        <Route name="sharing" handler={SharingContentView} />
+    </Route>
     <Route name="about" handler={AboutView} />
   </Route>
 );
