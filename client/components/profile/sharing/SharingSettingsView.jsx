@@ -4,8 +4,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div id="sharing-view">
-        <h1>Sharing</h1>
-        <p>More goes here.</p>
+        <h2>Sharing</h2>
       </div>
     );
   }
