@@ -1,5 +1,5 @@
 var React = require('react');
-var QuestionsList = require('./List.jsx');
+var QuestionsList = require('./QuestionList.jsx');
 
 module.exports = React.createClass({
   getInitialState: function() {
