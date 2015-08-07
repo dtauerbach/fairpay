@@ -6,7 +6,8 @@ module.exports = React.createClass({
   },
 
   handleChange: function(event) {
-    this.setState({sharing_setting: event.target.value})
+    this.setState({sharing_setting: event.target.value});
+    this.props.saveValues({sharing_setting: event.target.value});
   },
 
   render: function() {
