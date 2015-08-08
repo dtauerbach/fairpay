@@ -2,7 +2,13 @@ var React = require('react');
 
 module.exports = React.createClass({
   getInitialState: function() {
-    return {sharing_setting: 'private'};
+    return {
+      current_sharing_setting: 'private',
+      sharing_options: {
+        private_setting: 'Private',
+        full_setting: 'Full'
+      }
+    };
   },
 
   handleChange: function(event) {
@@ -10,11 +16,20 @@ module.exports = React.createClass({
     this.props.saveValues({sharing_setting: event.target.value});
   },
 
+  constructInputFields: function() {
+    var inputs = [];
+    for (var property in this.state.sharing_options) {
+      if (this.state.sharing_options.hasOwnProperty(property)) {
+        inputs.push(<input type="radio" className="radio sharing-settings-radio" name="sharing_setting_radio_selection" value={property} onChange={this.handleChange}> {this.state.sharing_options[property]} </input>)
+      }
+    }
+    return inputs;
+  },
+
   render: function() {
     return (
       <div id="profile-sharing-view">
-          <input type="radio" className="radio sharing-settings-radio" name="sharing_setting_radio_selection" value="private" onChange={this.handleChange}> Private </input>
-          <input type="radio" className="radio sharing-settings-radio" name="sharing_setting_radio_selection" value="full" onChange={this.handleChange}> Full </input>
+          {this.constructInputFields()}
           <div> Your sharing is set to {this.state.sharing_setting} </div>
       </div>
     );
