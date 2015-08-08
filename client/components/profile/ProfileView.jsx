@@ -17,7 +17,7 @@ module.exports = React.createClass({
       <div id="profile-view">
           <h1>Profile View</h1>
           <ProfilePanel origin={this.props.origin} readFromAPI={this.props.readFromAPI} />
-          <RouteHandler saveValues={this.saveValues} />
+          <RouteHandler saveValues={this.saveValues} sharing_setting={this.state.sharing_setting} />
           <div> Your settings are: {this.state.sharing_setting} </div>
       </div>
     );
