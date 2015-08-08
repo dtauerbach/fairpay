@@ -3,7 +3,6 @@ var React = require('react');
 module.exports = React.createClass({
   getInitialState: function() {
     return {
-      current_sharing_setting: 'private_setting',
       sharing_options: {
         private_setting: 'Private',
         full_setting: 'Full'
@@ -12,7 +11,6 @@ module.exports = React.createClass({
   },
 
   handleChange: function(event) {
-    this.setState({sharing_setting: event.target.value});
     this.props.saveValues({sharing_setting: event.target.value});
   },
 
@@ -31,7 +29,6 @@ module.exports = React.createClass({
     return (
       <div id="profile-sharing-view">
           {this.constructInputFields()}
-          <div> Your sharing is set to {this.state.sharing_setting} </div>
       </div>
     );
   }
