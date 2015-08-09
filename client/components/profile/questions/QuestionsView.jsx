@@ -18,7 +18,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div className="questions-view">
-        <Link to="questions">Questions</Link>
+        <Link to="/profile/questions/1">Questions</Link>
         <QuestionsList data={this.state.data} />
       </div>
     );
