@@ -15,7 +15,7 @@ module.exports = (
     <Route name="data" handler={CompensationDataView} />
     <Route name="profile" handler={ProfileView}>
       <Route name="questions" path="/profile/questions/:id" handler={QuestionContentView}>
-        <DefaultRoute handler={QuestionContentView} />
+        <DefaultRoute name="defaultquestions" handler={QuestionContentView} />
       </Route>
       <Route name="sharing" handler={SharingContentView} />
     </Route>

@@ -1,11 +1,14 @@
 var React = require('react');
-var Question = require('./Question.jsx');
+var Router = require('react-router');
+var Link = Router.Link;
 
 module.exports = React.createClass({
     render: function() {
         var questions = this.props.data.map(function(question) {
             return (
-                <Question key={question.id} question_text={question.question_text} />
+                <li className="question">
+                  <Link to={"/profile/questions/" + question.id}>{question.question_text}</Link>
+                </li>
             );
         });
         return (
