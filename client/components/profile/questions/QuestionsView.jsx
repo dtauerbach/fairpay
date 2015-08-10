@@ -4,22 +4,11 @@ var Link = Router.Link;
 var QuestionsList = require('./QuestionList.jsx');
 
 module.exports = React.createClass({
-  getInitialState: function() {
-    return {data: []};
-  },
-  componentDidMount: function() {
-    this.readQuestionsFromAPI();
-  },
-  readQuestionsFromAPI: function() {
-    this.props.readFromAPI(this.props.origin + '/questions', function(questions) {
-      this.setState({data: questions})
-    }.bind(this));
-  },
   render: function() {
     return (
       <div className="questions-view">
         <Link to="/profile/questions/1">Questions</Link>
-        <QuestionsList data={this.state.data} />
+        <QuestionsList question_data={this.props.question_data} />
       </div>
     );
   }

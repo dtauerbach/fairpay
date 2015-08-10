@@ -4,7 +4,7 @@ var Link = Router.Link;
 
 module.exports = React.createClass({
     render: function() {
-        var questions = this.props.data.map(function(question) {
+        var questions = this.props.question_data.map(function(question) {
             return (
                 <li className="question">
                   <Link to={"/profile/questions/" + question.id}>{question.question_text}</Link>

@@ -7,8 +7,8 @@ module.exports = React.createClass({
     return (
       <div id="profile-panel-div">
           <h2>Profile</h2>
-          <QuestionsView origin={this.props.origin} readFromAPI={this.props.readFromAPI} />
-          <SharingSettingsView origin={this.props.origin} readFromAPI={this.props.readFromAPI} />
+          <QuestionsView question_data={this.props.question_data} />
+          <SharingSettingsView />
       </div>
     );
   }

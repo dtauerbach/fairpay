@@ -10,6 +10,7 @@ module.exports = React.createClass({
     return (
       <div id="profile-content-view">
           <div> This is the question content view. Question number is: {this.context.router.getCurrentParams().id} </div>
+          <div> Data is: {this.props.question_data} </div>
       </div>
     );
   }
