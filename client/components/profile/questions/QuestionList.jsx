@@ -6,7 +6,7 @@ module.exports = React.createClass({
     render: function() {
         var questions = this.props.question_data.map(function(question) {
             return (
-                <li className="question">
+                <li key={question.order_id} className="question">
                   <Link to={"/profile/questions/" + question.id}>{question.sidebar_question_title}</Link>
                 </li>
             );
