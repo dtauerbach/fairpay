@@ -6,10 +6,23 @@ module.exports = React.createClass({
     router: React.PropTypes.func.isRequired
   },
 
+  handleChange: function(event) {
+    var question_dict = {
+        question_results: {}
+    };
+    question_dict['question_results'][this.getQuestionId()] = event.target.value;
+    this.props.saveValues(question_dict);
+  },
+
   constructRadioAnswer: function(answer_text) {
+      var radio_name = "question_" + this.getQuestionId() + "_radio";
       return (
-          <div><input type="radio" name="question_radio" className="question_radio"> {answer_text} </input></div>
+          <div><input type="radio" name={radio_name} className="question_radio" value={answer_text} onChange={this.handleChange}> {answer_text} </input></div>
       );
+  },
+
+  getQuestionId: function() {
+    return this.context.router.getCurrentParams().id-1;
   },
 
   constructQuestionDiv: function(answer) {
@@ -26,7 +39,7 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var question = this.props.question_data[this.context.router.getCurrentParams().id-1];
+    var question = this.props.question_data[this.getQuestionId()];
     var answers = question.answers;
     var answer_divs = [];
     for (var id in answers) {
