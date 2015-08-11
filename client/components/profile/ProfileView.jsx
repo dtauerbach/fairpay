@@ -22,13 +22,18 @@ module.exports = React.createClass({
   },
 
   render: function() {
+    var divstyle = {
+        backgroundColor: 'cyan',
+        padding: '50px',
+        margin: '100px'
+    };
     return (
       <div>
       <div id="profile-view" className="col-md-12">
           <ProfilePanel question_data={this.state.question_data} />
           <RouteHandler saveValues={this.saveValues} sharing_setting={this.state.sharing_setting} question_data={this.state.question_data} />
       </div>
-      <div className="col-md-12"> Your settings are: {this.state.sharing_setting} </div>
+      <div className="col-md-12" style={divstyle}><center>Your settings are: {this.state.sharing_setting}</center></div>
       </div>
     );
   }
