@@ -5,8 +5,7 @@ var SharingSettingsView = require('./sharing/SharingSettingsView.jsx');
 module.exports = React.createClass({
   render: function() {
     return (
-      <div id="profile-panel-div">
-          <h2>Profile</h2>
+      <div id="profile-panel-div" className="col-md-4">
           <QuestionsView question_data={this.props.question_data} />
           <SharingSettingsView />
       </div>

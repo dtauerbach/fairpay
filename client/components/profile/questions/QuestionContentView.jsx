@@ -14,7 +14,7 @@ module.exports = React.createClass({
         answer_divs.push(<div className="answer"> {answers[id].answer_text} </div>);
     }
     return (
-      <div id="profile-content-view">
+      <div id="profile-content-view" className="col-md-8">
           <div className="question_title"> {question.question_title} </div>
           <div className="answer_div">
               {answer_divs}

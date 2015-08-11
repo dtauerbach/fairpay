@@ -23,11 +23,12 @@ module.exports = React.createClass({
 
   render: function() {
     return (
-      <div id="profile-view">
-          <h1>Profile View</h1>
+      <div>
+      <div id="profile-view" className="col-md-12">
           <ProfilePanel question_data={this.state.question_data} />
           <RouteHandler saveValues={this.saveValues} sharing_setting={this.state.sharing_setting} question_data={this.state.question_data} />
-          <div> Your settings are: {this.state.sharing_setting} </div>
+      </div>
+      <div className="col-md-12"> Your settings are: {this.state.sharing_setting} </div>
       </div>
     );
   }

@@ -27,7 +27,7 @@ module.exports = React.createClass({
 
   render: function() {
     return (
-      <div id="profile-sharing-view">
+      <div id="profile-sharing-view" className="col-md-8">
           {this.constructInputFields()}
       </div>
     );
