@@ -1,23 +1,29 @@
 var React = require('react');
 var Router = require('react-router');
+var ReactBootstrap = require('react-bootstrap');
+var ReactRouterBootstrap = require('react-router-bootstrap');
 var Link = Router.Link;
+var Navbar = ReactBootstrap.Navbar;
+var Nav = ReactBootstrap.Nav;
+var NavItem = ReactBootstrap.NavItem;
+var DropdownButton = ReactBootstrap.DropdownButton;
+var MenuItem = ReactBootstrap.MenuItem;
+var Button = ReactBootstrap.Button;
+var NavItemLink = ReactRouterBootstrap.NavItemLink;
 
 module.exports = React.createClass({
   render: function() {
-    return (
-      <div id="menu">
-        <span id="menu-link" onClick={this.props.sendMenuClick}><span></span></span>
-        <div id="menu-list">
-          <div className="pure-menu pure-menu-open">
-            <span className="pure-menu-heading">Menu Heading</span>
-            <ul>
-              <li><Link to="profile">My Profile</Link></li>
-              <li><Link to="data">Compensation Data</Link></li>
-              <li><Link to="about">About</Link></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    var navbarInstance = (
+      <Navbar brand='FairPay' fixedTop>
+        <Nav bsStyle='pills' pullRight>
+          <NavItemLink to="about"> About </NavItemLink>
+          <NavItemLink to="profile"> My Profile </NavItemLink>
+          <NavItemLink to="data"> Market Data </NavItemLink>
+          <NavItem eventKey={1} href='#'>Sign Up</NavItem>
+          <NavItem eventKey={2} href='#'>Log In</NavItem>
+        </Nav>
+      </Navbar>
     );
+    return navbarInstance;
   }
 });

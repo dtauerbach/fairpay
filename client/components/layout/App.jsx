@@ -31,7 +31,7 @@ module.exports = React.createClass({
     var menu = this.state.showMenu ? 'show-menu' : 'hide-menu';
 
     return (
-      <div id="app" className={menu}>
+      <div>
         <Menu sendMenuClick={this.handleMenuClick} />
         <div id="content">
           <RouteHandler origin={this.props.origin} readFromAPI={this.readFromAPI} />
