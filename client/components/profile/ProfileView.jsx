@@ -28,15 +28,15 @@ module.exports = React.createClass({
         padding: '50px',
         margin: '100px'
     };
-    question_settings = []
+    question_settings = [];
     for (prop in this.state.question_results) {
-        question_settings.push(<div>{prop}:{this.state.question_results[prop]}</div>)
+        question_settings.push(<div>{prop}:{this.state.question_results[prop]}</div>);
     }
     return (
       <div>
       <div id="profile-view" className="col-md-12">
           <ProfilePanel question_data={this.state.question_data} />
-          <RouteHandler saveValues={this.saveValues} sharing_setting={this.state.sharing_setting} question_data={this.state.question_data} />
+          <RouteHandler saveValues={this.saveValues} sharing_setting={this.state.sharing_setting} question_data={this.state.question_data} current_question_results={this.state.question_results} />
       </div>
       <div className="col-md-12" style={divstyle}>
           <center><p>Sharing settings: {this.state.sharing_setting}</p><p>Question settings: {question_settings}</p></center>

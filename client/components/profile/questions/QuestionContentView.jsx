@@ -10,6 +10,7 @@ module.exports = React.createClass({
     var question_dict = {
         question_results: {}
     };
+    question_dict['question_results'] = this.props.current_question_results;
     question_dict['question_results'][this.getQuestionId()] = event.target.value;
     this.props.saveValues(question_dict);
   },
