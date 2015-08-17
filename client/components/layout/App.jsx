@@ -10,7 +10,15 @@ module.exports = React.createClass({
   },
 
   getInitialState: function() {
-      return {showMenu: false};
+      return {
+          showMenu: false,
+          question_results: {},
+          sharing_setting: -1
+      };
+  },
+
+  saveValues: function(dictionary) {
+    this.setState(dictionary);
   },
 
   readFromAPI: function(url, successFunction) {
@@ -34,7 +42,7 @@ module.exports = React.createClass({
       <div>
         <Menu sendMenuClick={this.handleMenuClick} />
         <div id="content">
-          <RouteHandler origin={this.props.origin} readFromAPI={this.readFromAPI} />
+          <RouteHandler origin={this.props.origin} readFromAPI={this.readFromAPI} saveValues={this.saveValues} question_results={this.state.question_results} sharing_setting={this.state.sharing_setting} />
         </div>
       </div>
     );

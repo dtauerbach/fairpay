@@ -6,7 +6,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div id="profile-panel-div" className="col-md-4">
-          <QuestionsView question_data={this.props.question_data} />
+          <QuestionsView question_data={this.props.question_data} current_question={this.props.current_question} />
           <SharingSettingsView />
       </div>
     );

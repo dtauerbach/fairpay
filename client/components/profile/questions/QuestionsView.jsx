@@ -5,9 +5,10 @@ var QuestionsList = require('./QuestionList.jsx');
 
 module.exports = React.createClass({
   render: function() {
+    var link_location = "/profile/questions/" + this.props.current_question;
     return (
       <div className="questions-view">
-        <Link to="/profile/questions/1"><h2>Profile</h2></Link>
+        <Link to={link_location}><h2>Profile</h2></Link>
         <QuestionsList question_data={this.props.question_data} />
       </div>
     );
