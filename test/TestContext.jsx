@@ -11,6 +11,9 @@ var TestContext = {
         routes = (
           <Route path="/">
             <Route name="test" handler={TargetComponent} />
+            <Route name="about" handler={TargetComponent} />
+            <Route name="profile" handler={TargetComponent} />
+            <Route name="data" handler={TargetComponent} />
           </Route>
         );
 
