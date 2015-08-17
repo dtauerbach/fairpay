@@ -18,7 +18,7 @@ module.exports = React.createClass({
   constructRadioAnswer: function(answer_text) {
       var radio_name = "question_" + this.getQuestionId() + "_radio";
       return (
-          <div><input type="radio" name={radio_name} className="question_radio" value={answer_text} onChange={this.handleChange}> {answer_text} </input></div>
+          <div><input type="radio" name={radio_name} className="question_radio" value={answer_text} onChange={this.handleChange} /> {answer_text}</div>
       );
   },
 
