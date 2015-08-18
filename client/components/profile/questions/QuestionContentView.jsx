@@ -11,6 +11,8 @@ module.exports = React.createClass({
   },
 
   updateQuestionResults: function(text) {
+    if (!(text))
+      return;
     var question_dict = {
         question_results: {}
     };
