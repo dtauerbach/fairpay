@@ -54,7 +54,7 @@ module.exports = React.createClass({
       var radio_name = "question_" + this.getQuestionId() + "_radio";
       return (
           <div>
-            <label className="btn btn-default">
+            <label className="question-button btn btn-block btn-primary">
               <input type="radio" name={radio_name} className="question_radio" value={answer_text} onChange={this.handleRadioChange} checked={this.getCheckedStatus(answer_text)} /> {answer_text}
             </label>
           </div>
@@ -110,9 +110,9 @@ module.exports = React.createClass({
         answer_divs.push(this.constructQuestionDiv(answers[id]));
     }
     return (
-      <div id="profile-content-view" className="col-md-8">
-          <div className="question_title"> <h1>{question.question_title}</h1> </div>
-          <div className="answer_div btn-group">
+      <div id="profile-content-view" className="col-md-8 centered">
+                      <div className="question_title"> <h1>{question.question_title}</h1> </div>
+          <div className="answer-group btn-group">
               {answer_divs}
           </div>
       </div>
