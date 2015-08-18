@@ -47,11 +47,11 @@ module.exports = React.createClass({
     }
     return (
       <div>
-      <div id="profile-view" className="col-md-12">
+      <div id="profile-view" className="row">
           <ProfilePanel question_data={this.state.question_data} current_question={this.getCurrentQuestion()} question_results={this.props.question_results} />
           <RouteHandler saveValues={this.props.saveValues} sharing_setting={this.props.sharing_setting} question_data={this.state.question_data} question_results={this.props.question_results} current_question={this.getCurrentQuestion()} />
       </div>
-      <div className="col-md-12" style={divstyle}>
+      <div className="row" style={divstyle}>
           <center><p>Sharing settings: {this.props.sharing_setting}</p><p>Question settings: {question_settings}</p></center>
       </div>
       </div>
