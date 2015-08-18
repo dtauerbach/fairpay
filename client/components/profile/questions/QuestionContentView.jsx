@@ -14,7 +14,7 @@ module.exports = React.createClass({
     var question_dict = {
         question_results: {}
     };
-    question_dict['question_results'] = this.props.current_question_results;
+    question_dict['question_results'] = this.props.question_results;
     question_dict['question_results'][this.getQuestionId()] = text;
     this.props.saveValues(question_dict);
   },
@@ -44,7 +44,7 @@ module.exports = React.createClass({
   },
 
   getCheckedStatus: function(answer_text) {
-    var current_answer = this.props.current_question_results[this.getQuestionId()];
+    var current_answer = this.props.question_results[this.getQuestionId()];
     return (typeof(current_answer) !== 'undefined' && current_answer == answer_text);
   },
 

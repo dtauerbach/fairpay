@@ -9,7 +9,7 @@ module.exports = React.createClass({
     return (
       <div className="questions-view">
         <Link to={link_location}><h2>Profile</h2></Link>
-        <QuestionsList question_data={this.props.question_data} />
+        <QuestionsList question_data={this.props.question_data} question_results={this.props.question_results} />
       </div>
     );
   }
