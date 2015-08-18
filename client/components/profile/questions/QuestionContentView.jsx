@@ -32,8 +32,8 @@ module.exports = React.createClass({
   },
 
   getQuestionId: function() {
-    var id = this.context.router.getCurrentParams().id-1;
-    return isNaN(id) ? this.props.current_question-1 : id;
+    var id = this.context.router.getCurrentParams().id;
+    return isNaN(id) ? this.props.current_question : id;
   },
 
   constructQuestionDiv: function(answer) {
@@ -58,15 +58,22 @@ module.exports = React.createClass({
       return answer_div;
   },
 
+  getQuestion: function() {
+    var question_id = this.getQuestionId();
+    if (!(question_id in this.props.question_data)) {
+      return null;
+    }
+    return this.props.question_data[question_id];
+  },
+
   render: function() {
     if (this.props.question_data.length == 0) {
       return <div>Loading...</div>;
     }
-    var question_id = this.getQuestionId();
-    if (!(question_id in this.props.question_data)) {
+    var question = this.getQuestion();
+    if (question === null) {
       return <div> Submit Your Data </div>;
     }
-    var question = this.props.question_data[question_id];
     var answers = question.answers;
     var answer_divs = [];
     for (var id in answers) {

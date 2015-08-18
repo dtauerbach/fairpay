@@ -16,7 +16,10 @@ module.exports = React.createClass({
 
   readQuestionsFromAPI: function() {
     this.props.readFromAPI(this.props.origin + '/questions', function(questions) {
-      this.setState({question_data: questions})
+      tmp_dict = {}
+      for (var i = 0; i < questions.length; i++)
+        tmp_dict[questions[i].order_id] = questions[i];
+      this.setState({question_data: tmp_dict})
     }.bind(this));
   },
 
