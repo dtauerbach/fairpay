@@ -43,16 +43,15 @@ module.exports = React.createClass({
     );
   },
 
-  setChecked: function(answer_text) {
+  getCheckedStatus: function(answer_text) {
     var current_answer = this.props.current_question_results[this.getQuestionId()];
     return (typeof(current_answer) !== 'undefined' && current_answer == answer_text);
   },
 
   constructRadioAnswer: function(answer_text) {
-      var checked = this.setChecked(answer_text);
       var radio_name = "question_" + this.getQuestionId() + "_radio";
       return (
-          <div><input type="radio" name={radio_name} className="question_radio" value={answer_text} onChange={this.handleRadioChange} checked={checked} /> {answer_text}</div>
+          <div><input type="radio" name={radio_name} className="question_radio" value={answer_text} onChange={this.handleRadioChange} checked={this.getCheckedStatus(answer_text)} /> {answer_text}</div>
       );
   },
 
