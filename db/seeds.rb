@@ -74,5 +74,24 @@ Question.create!([
                         "css" => "small"
                       }
                     }
+                  },
+  {order_id: 6, question_title: "I identify as a...", sidebar_question_title: "Gender", answers: {
+                      1 => {
+                        "answer_type" => "Radio",
+                        "answer_text" => "Man"
+                      },
+                      2 => {
+                        "answer_type" => "Radio",
+                        "answer_text" => "Woman"
+                      },
+                      3 => {
+                        "answer_type" => "Radio",
+                        "answer_text" => "Neither a man nor a woman"
+                      },
+                      4 => {
+                        "answer_type" => "Radio",
+                        "answer_text" => "Fuck your gender bullshit"
+                      }
+                    }
                   }
 ])
