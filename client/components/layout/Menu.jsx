@@ -13,7 +13,7 @@ var NavItemLink = ReactRouterBootstrap.NavItemLink;
 
 module.exports = React.createClass({
   render: function() {
-    var navbarInstance = (
+    return (
       <Navbar brand='FairPay' fixedTop>
         <Nav bsStyle='pills' pullRight>
           <NavItemLink to="about"> About </NavItemLink>
@@ -24,6 +24,5 @@ module.exports = React.createClass({
         </Nav>
       </Navbar>
     );
-    return navbarInstance;
   }
 });
