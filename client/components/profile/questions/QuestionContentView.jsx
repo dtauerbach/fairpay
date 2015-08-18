@@ -23,7 +23,8 @@ module.exports = React.createClass({
   },
 
   getQuestionId: function() {
-    return this.context.router.getCurrentParams().id-1;
+    var id = this.context.router.getCurrentParams().id-1;
+    return isNaN(id) ? this.props.current_question-1 : id;
   },
 
   constructQuestionDiv: function(answer) {
@@ -40,6 +41,9 @@ module.exports = React.createClass({
   },
 
   render: function() {
+    if (this.props.question_data.length == 0) {
+      return <div>Loading...</div>;
+    }
     var question = this.props.question_data[this.getQuestionId()];
     var answers = question.answers;
     var answer_divs = [];
