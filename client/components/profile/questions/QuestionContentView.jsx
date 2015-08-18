@@ -6,20 +6,38 @@ module.exports = React.createClass({
     router: React.PropTypes.func.isRequired
   },
 
-  handleChange: function(event) {
+  getInitialState: function() {
+    return {current_value: ''}
+  },
+
+  updateQuestionResults: function(text) {
     var question_dict = {
         question_results: {}
     };
     question_dict['question_results'] = this.props.current_question_results;
-    question_dict['question_results'][this.getQuestionId()] = event.target.value;
+    question_dict['question_results'][this.getQuestionId()] = text;
     this.props.saveValues(question_dict);
+  },
+
+  handleRadioChange: function(event) {
+    this.updateQuestionResults(event.target.value);
+  },
+
+  handleTextInputChange: function(event) {
+    this.setState({current_value: event.target.value});
+  },
+
+  handleTextBoxSubmit: function(event) {
+    // todo i am here. need to have this submit what the user put in
+    this.updateQuestionResults(this.state.current_value);
   },
 
   constructTextBoxAnswer: function(default_text) {
     var question_name = "question_" + this.getQuestionId() + "_textbox";
     return (
       <div>
-        <input type="text" name={question_name} className="question_textbox" placeholder={default_text} onChange={this.handleChange} />
+        <input type="text" name={question_name} className="question_textbox" placeholder={default_text} onChange={this.handleTextInputChange} />
+        <input type="submit" value="Submit" onClick={this.handleTextBoxSubmit} />
       </div>
     );
   },
@@ -27,7 +45,7 @@ module.exports = React.createClass({
   constructRadioAnswer: function(answer_text) {
       var radio_name = "question_" + this.getQuestionId() + "_radio";
       return (
-          <div><input type="radio" name={radio_name} className="question_radio" value={answer_text} onChange={this.handleChange} /> {answer_text}</div>
+          <div><input type="radio" name={radio_name} className="question_radio" value={answer_text} onChange={this.handleRadioChange} /> {answer_text}</div>
       );
   },
 
