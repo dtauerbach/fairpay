@@ -21,6 +21,7 @@ module.exports = React.createClass({
 
   handleRadioChange: function(event) {
     this.updateQuestionResults(event.target.value);
+    this.context.router.transitionTo('/profile');
   },
 
   handleTextInputChange: function(event) {
@@ -28,8 +29,8 @@ module.exports = React.createClass({
   },
 
   handleTextBoxSubmit: function(event) {
-    // todo i am here. need to have this submit what the user put in
     this.updateQuestionResults(this.state.current_value);
+    this.context.router.transitionTo('/profile');
   },
 
   constructTextBoxAnswer: function(default_text) {
