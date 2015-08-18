@@ -27,9 +27,9 @@ module.exports = React.createClass({
     if (!("1" in this.props.question_results))
       return 1;
     // TODO move this hardcoded sanity check limit elsewhere
-    for (var i=0; i < 500; i+=1) {
+    for (var i=1; i < 500; i++) {
       if (!(i.toString() in this.props.question_results)) {
-        return i+1;
+        return i;
       }
     }
     return -1;
