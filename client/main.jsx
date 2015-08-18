@@ -1,6 +1,4 @@
-require('./assets/app.css');
-require('./assets/menu.css');
-require('./assets/blabs.css');
+require('./assets/fairpay.less');
 
 var React = require('react');
 var Router = require('react-router');

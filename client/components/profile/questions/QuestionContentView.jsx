@@ -53,7 +53,11 @@ module.exports = React.createClass({
   constructRadioAnswer: function(answer_text) {
       var radio_name = "question_" + this.getQuestionId() + "_radio";
       return (
-          <div><input type="radio" name={radio_name} className="question_radio" value={answer_text} onChange={this.handleRadioChange} checked={this.getCheckedStatus(answer_text)} /> {answer_text}</div>
+          <div>
+            <label className="btn btn-default">
+              <input type="radio" name={radio_name} className="question_radio" value={answer_text} onChange={this.handleRadioChange} checked={this.getCheckedStatus(answer_text)} /> {answer_text}
+            </label>
+          </div>
       );
   },
 
@@ -108,7 +112,7 @@ module.exports = React.createClass({
     return (
       <div id="profile-content-view" className="col-md-8">
           <div className="question_title"> <h1>{question.question_title}</h1> </div>
-          <div className="answer_div">
+          <div className="answer_div btn-group">
               {answer_divs}
           </div>
       </div>
