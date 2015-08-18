@@ -41,10 +41,6 @@ Question.create!([
                       1 => {
                         "answer_type" => "titletextbox",
                         "default_text" => "e.g. Software Engineer"
-                      },
-                      2 => {
-                        "answer_type" => "Submit",
-                        "answer_text" => "Submit"
                       }
                     }
                   },
@@ -52,10 +48,6 @@ Question.create!([
                       1 => {
                         "answer_type" => "moneytextbox",
                         "default_text" => "e.g. 100,000"
-                      },
-                      2 => {
-                        "answer_type" => "Submit",
-                        "answer_text" => "Submit"
                       }
                     }
                   },
@@ -65,10 +57,6 @@ Question.create!([
                         "default_text" => "e.g. 4"
                       },
                       2 => {
-                        "answer_type" => "Submit",
-                        "answer_text" => "Submit"
-                      },
-                      3 => {
                         "answer_type" => "Radio",
                         "answer_text" => "Not applicable",
                         "css" => "small"
