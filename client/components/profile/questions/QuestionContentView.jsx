@@ -15,6 +15,15 @@ module.exports = React.createClass({
     this.props.saveValues(question_dict);
   },
 
+  constructTextBoxAnswer: function(default_text) {
+    var question_name = "question_" + this.getQuestionId() + "_textbox";
+    return (
+      <div>
+        <input type="text" name={question_name} className="question_textbox" placeholder={default_text} onChange={this.handleChange} />
+      </div>
+    );
+  },
+
   constructRadioAnswer: function(answer_text) {
       var radio_name = "question_" + this.getQuestionId() + "_radio";
       return (
@@ -34,6 +43,15 @@ module.exports = React.createClass({
       case 'Radio':
         var answer_div = this.constructRadioAnswer(answer.answer_text);
         break;
+      case 'titletextbox':
+        var answer_div = this.constructTextBoxAnswer(answer.default_text);
+        break;
+      case 'moneytextbox':
+        var answer_div = this.constructTextBoxAnswer(answer.default_text);
+        break;
+      case 'numerictextbox':
+        var answer_div = this.constructTextBoxAnswer(answer.default_text);
+        break;
       default:
         var answer_div = <div className={answer_type}> {answer.answer_text} </div>
       }
@@ -44,7 +62,11 @@ module.exports = React.createClass({
     if (this.props.question_data.length == 0) {
       return <div>Loading...</div>;
     }
-    var question = this.props.question_data[this.getQuestionId()];
+    var question_id = this.getQuestionId();
+    if (!(question_id in this.props.question_data)) {
+      return <div> Submit Your Data </div>;
+    }
+    var question = this.props.question_data[question_id];
     var answers = question.answers;
     var answer_divs = [];
     for (var id in answers) {
