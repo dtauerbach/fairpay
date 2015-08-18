@@ -5,8 +5,8 @@ var Link = Router.Link;
 module.exports = React.createClass({
   render: function() {
     return (
-      <div id="sharing-view">
-        <Link to="sharing"><h2>Sharing</h2></Link>
+      <div className="sharing-view">
+          <Link to="sharing"><em><h2>Sharing</h2></em></Link>
       </div>
     );
   }
