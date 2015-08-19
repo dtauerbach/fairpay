@@ -13,7 +13,7 @@ module.exports = React.createClass({
       return {
           showMenu: false,
           question_results: {},
-          sharing_setting: -1
+          sharing_setting: 'Private'
       };
   },
 

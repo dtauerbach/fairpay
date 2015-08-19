@@ -24,14 +24,19 @@ module.exports = React.createClass({
     this.props.saveValues({sharing_setting: event.target.value});
   },
 
+  getCheckedStatus: function(setting_name) {
+    console.log("this.props.sharing_setting is " + this.props.sharing_setting);
+    return (this.props.sharing_setting == setting_name);
+  },
+
   constructInputFields: function() {
     var inputs = [];
     for (var property in this.state.sharing_options) {
       var sharing_setting = this.state.sharing_options[property];
-      var defaultChecked = this.props.sharing_setting == property;
+      var classForLabel = this.getCheckedStatus(sharing_setting.short_name) ? "sharing-settings-button checked" : "sharing-settings-button";
       inputs.push(
-            <label className="sharing-setting-button">
-              <input type="radio" className="sharing-setting-radio" name="sharing_setting_radio_selection" value={sharing_setting.short_name} onChange={this.handleChange} defaultChecked={defaultChecked}> {sharing_setting.short_name} </input>
+            <label className={classForLabel}>
+              <input type="radio" className="sharing-settings-radio" name="sharing_setting_radio_selection" value={sharing_setting.short_name} onChange={this.handleChange} checked={this.getCheckedStatus(sharing_setting.short_name)}> {sharing_setting.short_name} </input>
             </label>
       )
     }
