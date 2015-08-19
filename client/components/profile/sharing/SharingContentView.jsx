@@ -30,11 +30,9 @@ module.exports = React.createClass({
       var sharing_setting = this.state.sharing_options[property];
       var defaultChecked = this.props.sharing_setting == property;
       inputs.push(
-          <div>
-            <label className="sharing-settings-label">
-              <input type="radio" className="sharing-settings-radio" name="sharing_setting_radio_selection" value={sharing_setting.short_name} onChange={this.handleChange} defaultChecked={defaultChecked}> {sharing_setting.short_name} </input>
+            <label className="sharing-setting-button">
+              <input type="radio" className="sharing-setting-radio" name="sharing_setting_radio_selection" value={sharing_setting.short_name} onChange={this.handleChange} defaultChecked={defaultChecked}> {sharing_setting.short_name} </input>
             </label>
-          </div>
       )
     }
     return inputs;
@@ -42,7 +40,7 @@ module.exports = React.createClass({
 
   render: function() {
     return (
-      <div className="profile-sharing-view" className="col-md-8">
+      <div className="profile-sharing-container col-md-8">
           {this.constructInputFields()}
       </div>
     );

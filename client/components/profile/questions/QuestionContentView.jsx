@@ -55,7 +55,7 @@ module.exports = React.createClass({
       return (
           <div>
             <label className="question-button">
-              <input type="radio" name={radio_name} className="question_radio" value={answer_text} onChange={this.handleRadioChange} checked={this.getCheckedStatus(answer_text)} /> {answer_text}
+              <input type="radio" name={radio_name} className="question-radio" value={answer_text} onChange={this.handleRadioChange} checked={this.getCheckedStatus(answer_text)} /> {answer_text}
             </label>
           </div>
       );
