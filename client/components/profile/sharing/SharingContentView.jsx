@@ -6,13 +6,13 @@ module.exports = React.createClass({
       sharing_options: {
         private_setting: {
           short_name: 'Private',
-          description: 'Please share my data only in aggregated views',
+          description: 'My data will only be shared in aggregated views.',
           mouseover: 'By choosing this setting, you will only have access to coarse aggregated views. Also note that while it is unlikely that your data could be identified from such views and it is against our Terms of Use to attempt to identify data with particular individuals, it is *possible* that certain aspects of this data could be de-anonymized, and our service does not take responsibility in this case. For more information, please check out our privacy policy.',
           appearance: 'private_apperance.svg',
         },
         full_setting: {
           short_name: 'Full',
-          description: 'Please share my data with other FairPay users',
+          description: 'My compensation data will be shared with other FairPay users.',
           mouseover: 'By choosing this setting, you will have access to the raw compensation data points of other users. No personally identifying information (such as your email address, LinkedIn account details) will be included in the data set. While it is against our Terms of Use to attempt to identify aspects of data as belonging or likely belonging to particular invdividuals, it is possible the information you provide could be identifying. For example, if your title is "The One and Only Performance Ninja", that may allow others to identify your compensation details.',
           appearance: 'public_apperance.svg'
         }
