@@ -28,6 +28,27 @@ module.exports = React.createClass({
     return (this.props.sharing_setting == setting_name);
   },
 
+  constructExtraDiv: function(sharing_setting) {
+    if (!(sharing_setting))
+      return (<div></div>);
+    return (
+        <div>
+          <div className="sharing-setting-description"> {sharing_setting.description} </div>
+          <div className="sharing-setting-mouseover"> {sharing_setting.mouseover} </div>
+        </div>
+    );
+  },
+
+  getCheckedSetting: function() {
+    for (var property in this.state.sharing_options) {
+      var sharing_setting = this.state.sharing_options[property];
+      if (this.getCheckedStatus(sharing_setting.short_name)) {
+        return sharing_setting;
+      }
+    }
+    return null;
+  },
+
   constructInputFields: function() {
     var inputs = [];
     for (var property in this.state.sharing_options) {
@@ -46,6 +67,7 @@ module.exports = React.createClass({
     return (
       <div className="profile-sharing-container col-md-8">
           {this.constructInputFields()}
+          {this.constructExtraDiv(this.getCheckedSetting())}
       </div>
     );
   }
