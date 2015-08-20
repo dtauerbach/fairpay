@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805212114) do
+ActiveRecord::Schema.define(version: 20150820070823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "oauths", force: :cascade do |t|
+    t.string "token",  null: false
+    t.string "secret", null: false
+  end
+
+  add_index "oauths", ["token"], name: "index_oauths_on_token", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.integer  "order_id"
@@ -24,5 +31,13 @@ ActiveRecord::Schema.define(version: 20150805212114) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "uid",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
 end
