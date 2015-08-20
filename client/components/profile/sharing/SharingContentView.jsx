@@ -25,7 +25,6 @@ module.exports = React.createClass({
   },
 
   getCheckedStatus: function(setting_name) {
-    console.log("this.props.sharing_setting is " + this.props.sharing_setting);
     return (this.props.sharing_setting == setting_name);
   },
 
