@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.2.2'
 
-gem 'omniauth-linkedin-oauth2'
+gem 'jwt'
+gem 'oauth'
 gem 'pg'
 gem 'puma'
 gem 'rails', '4.2.1'
