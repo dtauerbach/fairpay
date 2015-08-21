@@ -11,4 +11,5 @@ gem 'rails-api'
 
 group :development, :test do
   gem 'seed_dump'
+  gem 'pry'
 end
