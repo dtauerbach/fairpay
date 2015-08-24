@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820070823) do
+ActiveRecord::Schema.define(version: 20150824180017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "datapoints", force: :cascade do |t|
+    t.string   "euid"
+    t.string   "workplace"
+    t.string   "role_type"
+    t.string   "title"
+    t.string   "base_salary"
+    t.string   "gender"
+    t.string   "race"
+    t.string   "region"
+    t.string   "total_rsu"
+    t.boolean  "li_connected"
+    t.string   "li_workplace"
+    t.string   "li_title"
+    t.boolean  "li_trusted"
+    t.boolean  "email_connected"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "oauths", force: :cascade do |t|
     t.string "token",  null: false
