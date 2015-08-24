@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :li_title
       t.boolean :li_trusted
       t.boolean :email_connected
+      t.string :sharing_setting
       t.timestamps null: false
     end
     add_index :users, :uid

@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150824180017) do
     t.string   "li_title"
     t.boolean  "li_trusted"
     t.boolean  "email_connected"
+    t.string   "sharing_setting"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -52,9 +53,15 @@ ActiveRecord::Schema.define(version: 20150824180017) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "uid",        null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "uid",             null: false
+    t.boolean  "li_connected"
+    t.string   "li_workplace"
+    t.string   "li_title"
+    t.boolean  "li_trusted"
+    t.boolean  "email_connected"
+    t.string   "sharing_setting"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
