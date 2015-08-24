@@ -1,5 +1,5 @@
 Question.create!([
-  {order_id: 1, question_title: "I work at...", sidebar_question_title: "Company", answers: {
+  {order_id: 1, question_title: "I work at...", sidebar_question_title: "Company", datapoint_field: "workplace", answers: {
                       1 => {
                         "answer_type" => "Radio",
                         "answer_text" => "Facebook"
@@ -20,7 +20,7 @@ Question.create!([
                       }
                     }
                   },
-  {order_id: 2, question_title: "I am a...", sidebar_question_title: "Role Type", answers: {
+  {order_id: 2, question_title: "I am a...", sidebar_question_title: "Role Type", datapoint_field: "role_type", answers: {
                       1 => {
                         "answer_type" => "Radio",
                         "answer_text" => "Individual Contributor (non-HR)"
@@ -37,21 +37,21 @@ Question.create!([
                       }
                     }
                   },
-  {order_id: 3, question_title: "My title is...", sidebar_question_title: "Title", answers: {
+  {order_id: 3, question_title: "My title is...", sidebar_question_title: "Title", datapoint_field: "title", answers: {
                       1 => {
                         "answer_type" => "titletextbox",
                         "default_text" => "e.g. Software Engineer"
                       }
                     }
                   },
-  {order_id: 4, question_title: "My base annual salary (USD) is...", sidebar_question_title: "Base Salary", answers: {
+  {order_id: 4, question_title: "My base annual salary (USD) is...", sidebar_question_title: "Base Salary", datapoint_field: "base_salary", answers: {
                       1 => {
                         "answer_type" => "moneytextbox",
                         "default_text" => "e.g. 100,000"
                       }
                     }
                   },
-  {order_id: 5, question_title: "My level is...", sidebar_question_title: "Level", answers: {
+  {order_id: 5, question_title: "My level is...", sidebar_question_title: "Level", datapoint_field: "level", answers: {
                       1 => {
                         "answer_type" => "numerictextbox",
                         "default_text" => "e.g. 4"
@@ -63,7 +63,7 @@ Question.create!([
                       }
                     }
                   },
-  {order_id: 6, question_title: "I identify as a...", sidebar_question_title: "Gender", answers: {
+  {order_id: 6, question_title: "I identify as a...", sidebar_question_title: "Gender", datapoint_field: "gender", answers: {
                       1 => {
                         "answer_type" => "Radio",
                         "answer_text" => "Man"

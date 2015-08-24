@@ -17,12 +17,13 @@ ActiveRecord::Schema.define(version: 20150824180017) do
   enable_extension "plpgsql"
 
   create_table "datapoints", force: :cascade do |t|
-    t.string   "euid"
+    t.string   "uid"
     t.string   "workplace"
     t.string   "role_type"
     t.string   "title"
     t.string   "base_salary"
     t.string   "gender"
+    t.string   "level"
     t.string   "race"
     t.string   "region"
     t.string   "total_rsu"
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150824180017) do
 
   create_table "questions", force: :cascade do |t|
     t.integer  "order_id"
+    t.string   "datapoint_field"
     t.string   "question_title"
     t.string   "sidebar_question_title"
     t.json     "answers"

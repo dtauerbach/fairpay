@@ -1,12 +1,13 @@
 class CreateDatapoints < ActiveRecord::Migration
   def change
     create_table :datapoints do |t|
-      t.string :euid
+      t.string :uid
       t.string :workplace
       t.string :role_type
       t.string :title
       t.string :base_salary
       t.string :gender
+      t.string :level
       t.string :race
       t.string :region
       t.string :total_rsu
