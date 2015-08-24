@@ -1,22 +1,25 @@
 class TokensController < ApplicationController
 
   def request_token
-    binding.pry
-    request_token = LINKEDIN.get_request_token(oauth_callback: ENV['OAUTH_CALLBACK'])
-    Oauth.create(token: request_token.token, secret: request_token.secret)
-    redirect_to request_token.authorize_url(oauth_callback: ENV['OAUTH_CALLBACK'])
+    auth_url = LINKEDIN.auth_code.authorize_url(
+        redirect_uri: ENV['OAUTH_CALLBACK'],
+        state: '123asdfsadf'
+      )
+    redirect_to auth_url
   end
 
   def access_token
-    oauth = Oauth.find_by(token: params[:oauth_token])
-    if oauth.present?
-      request_token = OAuth::RequestToken.new(LINKEDIN, oauth.token, oauth.secret)
-      access_token = request_token.get_access_token(oauth_verifier: params[:oauth_verifier])
-      user = User.find_or_create_by(uid: access_token.params[:user_id])
-      jwt = JWT.encode({uid: user.uid, exp: 1.day.from_now.to_i}, Rails.application.secrets.secret_key_base)
-      redirect_to ENV['ORIGIN'] + "?jwt=#{jwt}"
-    else
-      redirect_to ENV['ORIGIN']
-    end
+    access_token = LINKEDIN.auth_code.get_token(
+        params[:code],
+        redirect_uri: ENV['OAUTH_CALLBACK']
+      )
+    response = access_token.get(
+        'https://api.linkedin.com/v1/people/~?format=json'
+      )
+    json_response = JSON.parse(response.body)
+    binding.pry
+    user = User.find_or_create_by(uid: json_response["id"])
+    jwt = JWT.encode({uid: user.uid, exp: 1.day.from_now.to_i}, Rails.application.secrets.secret_key_base)
+    redirect_to ENV['ORIGIN'] + "?jwt=#{jwt}"
   end
 end

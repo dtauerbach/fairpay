@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  validates_presence_of :uid, :handle
+  validates_presence_of :uid
 end

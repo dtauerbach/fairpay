@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.2'
 
 gem 'jwt'
-gem 'oauth'
+gem 'oauth2'
 gem 'pg'
 gem 'puma'
 gem 'rails', '4.2.1'
