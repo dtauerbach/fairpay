@@ -34,6 +34,9 @@ module.exports = React.createClass({
   saveValues: function(dictionary) {
     this.setState(dictionary, function (){
       localStorage.setItem('fairpay', JSON.stringify(this.state));
+      if (this.state.signedIn) {
+        this.writeDatapointToAPI();
+      }
     });
   },
 
@@ -65,6 +68,28 @@ module.exports = React.createClass({
       headers: {
           'Authorization': sessionStorage.getItem('jwt')
       },
+      success: successFunction,
+      error: function(error) {
+        console.error(url, error['response']);
+        location = '/';
+      }
+    });
+  },
+
+  writeDatapointToAPI: function() {
+    this.writeToAPI('post', this.props.origin + '/datapoints', JSON.stringify(this.state), function() {
+      console.log("wrote to api");
+    });
+  },
+
+  writeToAPI: function(method, url, data, successFunction) {
+    Reqwest({
+      url: url,
+      data: data,
+      type: 'json',
+      method: method,
+      contentType: 'application/json',
+      headers: {'Authorization': sessionStorage.getItem('jwt')},
       success: successFunction,
       error: function(error) {
         console.error(url, error['response']);
