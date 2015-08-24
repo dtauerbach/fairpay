@@ -13,19 +13,27 @@ module.exports = React.createClass({
   },
 
   getInitialState: function() {
+      var fairpayState = JSON.parse(localStorage.getItem('fairpay'));
+      var question_results = {};
+      var sharing_setting = 'Private';
+      if (fairpayState) {
+        question_results = fairpayState['question_results'] || {};
+        sharing_setting = fairpayState['sharing_setting'] || 'Private';
+      }
       return {
           showMenu: false,
           signedIn: false,
           currentUser: {
               handle: ''
           },
-          question_results: {},
-          sharing_setting: 'Private'
+          question_results: question_results,
+          sharing_setting: sharing_setting
       };
   },
 
   saveValues: function(dictionary) {
     this.setState(dictionary);
+    localStorage.setItem('fairpay', JSON.stringify(this.state));
   },
 
   componentWillMount: function() {
