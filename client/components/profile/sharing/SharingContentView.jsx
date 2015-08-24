@@ -5,7 +5,7 @@ module.exports = React.createClass({
     return {
       sharing_options: {
         private_setting: {
-          short_name: 'Private',
+          short_name: 'Restricted',
           description: 'My data will only be shared in aggregated views.',
           mouseover: 'By choosing this setting, you will only have access to coarse aggregated views. Also note that while it is unlikely that your data could be identified from such views and it is against our Terms of Use to attempt to identify data with particular individuals, it is *possible* that certain aspects of this data could be de-anonymized, and our service does not take responsibility in this case. For more information, please check out our privacy policy.',
           appearance: 'private_apperance.svg',

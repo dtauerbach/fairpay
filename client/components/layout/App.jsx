@@ -15,10 +15,10 @@ module.exports = React.createClass({
   getInitialState: function() {
       var fairpayState = JSON.parse(localStorage.getItem('fairpay'));
       var question_results = {};
-      var sharing_setting = 'Private';
+      var sharing_setting = 'Restricted';
       if (fairpayState) {
         question_results = fairpayState['question_results'] || {};
-        sharing_setting = fairpayState['sharing_setting'] || 'Private';
+        sharing_setting = fairpayState['sharing_setting'] || 'Restricted';
       }
       return {
           showMenu: false,
@@ -32,8 +32,9 @@ module.exports = React.createClass({
   },
 
   saveValues: function(dictionary) {
-    this.setState(dictionary);
-    localStorage.setItem('fairpay', JSON.stringify(this.state));
+    this.setState(dictionary, function (){
+      localStorage.setItem('fairpay', JSON.stringify(this.state));
+    });
   },
 
   componentWillMount: function() {
