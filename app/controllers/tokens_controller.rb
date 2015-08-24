@@ -17,7 +17,6 @@ class TokensController < ApplicationController
         'https://api.linkedin.com/v1/people/~?format=json'
       )
     json_response = JSON.parse(response.body)
-    binding.pry
     user = User.find_or_create_by(uid: json_response["id"])
     jwt = JWT.encode({uid: user.uid, exp: 1.day.from_now.to_i}, Rails.application.secrets.secret_key_base)
     redirect_to ENV['ORIGIN'] + "?jwt=#{jwt}"
