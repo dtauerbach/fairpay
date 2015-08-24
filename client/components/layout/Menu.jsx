@@ -20,7 +20,7 @@ module.exports = React.createClass({
   render: function() {
     console.log(this.props.origin);
     if (this.props.signedIn) {
-      var signingLink = <li><span onClick={this.handleSignOutLink}>Sign Out</span></li>;
+      var signingLink = <li><a href="#" onClick={this.handleSignOutLink}>Sign Out</a></li>;
     }
     else {
       var signingLink = <li><a href={this.props.origin + '/request_token'}>Sign In</a></li>;

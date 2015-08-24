@@ -1,6 +1,7 @@
 class TokensController < ApplicationController
 
   def request_token
+    # TODO save state and associate access token request with this state
     auth_url = LINKEDIN.auth_code.authorize_url(
         redirect_uri: ENV['OAUTH_CALLBACK'],
         state: '123asdfsadf'
