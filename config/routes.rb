@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   get 'request_token', to: 'tokens#request_token'
   get 'access_token', to: 'tokens#access_token'
 
+  post 'datapoints', to: 'datapoints#create_or_update'
+
   resources :questions, only: [:index]
 end

@@ -66,7 +66,7 @@ module.exports = React.createClass({
       method: 'get',
       contentType: 'application/json',
       headers: {
-          'Authorization': sessionStorage.getItem('jwt')
+        'Authorization': sessionStorage.getItem('jwt')
       },
       success: successFunction,
       error: function(error) {
@@ -89,7 +89,9 @@ module.exports = React.createClass({
       type: 'json',
       method: method,
       contentType: 'application/json',
-      headers: {'Authorization': sessionStorage.getItem('jwt')},
+      headers: {
+        'Authorization': sessionStorage.getItem('jwt')
+      },
       success: successFunction,
       error: function(error) {
         console.error(url, error['response']);
