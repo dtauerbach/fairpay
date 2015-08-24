@@ -65,7 +65,6 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    console.log("origin is " + this.props.origin);
     var menu = this.state.showMenu ? 'show-menu' : 'hide-menu';
 
     return (
