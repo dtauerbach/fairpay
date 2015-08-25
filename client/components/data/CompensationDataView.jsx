@@ -8,12 +8,21 @@ module.exports = React.createClass({
       var mainContentDiv = <div> {notEnoughDataText} </div>;
     }
     else {
-      var mainContentDiv = <div> {connectFirst} </div>
+      var mainContentDiv = <div>
+                             {connectFirst}
+                             <div className="row signin-internal">
+                               <a href={this.props.origin + '/request_token'}>Sign In</a>
+                             </div>
+                             <div className="row linkedin-explanation">
+                                 <a href='#'> Why do I have to connect via LinkedIn? </a>
+                             </div>
+                           </div>
     }
     return (
-
-      <div id="compensation-data-view">
-        {mainContentDiv}
+      <div className="row">
+        <div className="compensation-data-view">
+          {mainContentDiv}
+        </div>
       </div>
     );
   }
