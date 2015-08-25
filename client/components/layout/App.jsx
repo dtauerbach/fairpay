@@ -78,6 +78,7 @@ module.exports = React.createClass({
 
   writeDatapointToAPI: function() {
     this.writeToAPI('post', this.props.origin + '/datapoints', JSON.stringify(this.state), function() {
+      // TODO figure out how to handle this
       console.log("wrote to api");
     });
   },
