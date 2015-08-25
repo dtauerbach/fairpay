@@ -18,6 +18,7 @@ class CreateDatapoints < ActiveRecord::Migration
       t.boolean :email_connected
       t.string :sharing_setting
       t.timestamps null: false
+      t.index :uid, unique: true
     end
   end
 end
