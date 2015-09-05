@@ -1,18 +1,19 @@
 @base: #f938ab;
+@base-font: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
 [type='radio'] {
   visibility: hidden;
 }
 
 h1 {
-  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: @base-font;
   font-weight: 700;
 }
 
 h2 {
   margin: 0 0 35px;
   text-transform: uppercase;
-  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: @base-font;
   font-weight: 700;
   letter-spacing: 1px;
 }
@@ -107,7 +108,7 @@ ul {
   text-align: left;
   color: #dcdcdc;
   text-transform: uppercase;
-  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: @base-font;
   font-weight: 700;
   letter-spacing: 1px;
   font-size: 1.3em;
@@ -127,22 +128,16 @@ a:active, a:focus {
   font-weight: 500;
   margin: 10px;
   text-align: center;
-  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: @base-font;
   font-size: 1.5em;
 }
 
 .sharing-setting-mouseover {
   margin: 1.5em;
-  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: @base-font;
 }
 
-#app {
-  position: relative;
-  padding-left: 0;
-  cursor: default;
-}
-
-#content {
+.content {
   max-width: 80%;
   margin: 4em auto;
   padding: 0 2em;
@@ -157,7 +152,7 @@ a, a:focus, a:active {
   margin: 2em auto;
   width: 50%;
   text-align: center;
-  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: @base-font;
   font-size: 2em;
 }
 
