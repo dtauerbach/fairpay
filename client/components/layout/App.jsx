@@ -71,6 +71,7 @@ module.exports = React.createClass({
       success: successFunction,
       error: function(error) {
         console.error(url, error['response']);
+        sessionStorage.setItem('jwt','');
         location = '/';
       }
     });
