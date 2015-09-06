@@ -1,6 +1,12 @@
 @base: #f938ab;
 @base-font: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
+.medium-font {
+  font-family: @base-font;
+  line-height: 1em;
+  font-size: 2em;
+}
+
 [type='radio'] {
   visibility: hidden;
 }
@@ -19,8 +25,8 @@ h2 {
 }
 
 .question-button {
+  .medium-font;
   text-align: center;
-  font-size: 3em;
   background:#aaa;
   color:#fff;
   border-radius:8px;
@@ -149,11 +155,10 @@ a, a:focus, a:active {
 }
 
 .compensation-data-view {
+  .medium-font;
   margin: 2em auto;
-  width: 50%;
+  width: 80%;
   text-align: center;
-  font-family: @base-font;
-  font-size: 2em;
 }
 
 .signin-internal {
@@ -162,4 +167,16 @@ a, a:focus, a:active {
 
 .linkedin-explanation {
   font-size: 0.5em;
+}
+
+.progress-bar-container {
+  margin: 2em;
+}
+
+.sharelinks-container {
+  margin: 2em;
+}
+
+.progress {
+  height: 2em;
 }

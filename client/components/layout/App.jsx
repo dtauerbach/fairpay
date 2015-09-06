@@ -27,7 +27,8 @@ module.exports = React.createClass({
               handle: ''
           },
           question_results: question_results,
-          sharing_setting: sharing_setting
+          sharing_setting: sharing_setting,
+          companyTotal: 0
       };
   },
 
@@ -55,7 +56,13 @@ module.exports = React.createClass({
 
   currentUserFromAPI: function() {
     this.readFromAPI(this.props.origin + '/current_user', function(user) {
-      this.setState({signedIn: true, currentUser: user});
+      this.setState({
+          signedIn: true,
+          currentUser: user.uid,
+          companyTotal: user.company_total
+      });
+      console.log("current user is " + user.uid);
+      console.log("company total is " + user.company_total);
     }.bind(this));
   },
 
@@ -109,7 +116,7 @@ module.exports = React.createClass({
       <div>
         <Menu origin={this.props.origin} sendMenuClick={this.handleMenuClick} signedIn={this.state.signedIn} />
         <div className="content">
-          <RouteHandler origin={this.props.origin} readFromAPI={this.readFromAPI} saveValues={this.saveValues} question_results={this.state.question_results} sharing_setting={this.state.sharing_setting} signedIn={this.state.signedIn} />
+          <RouteHandler origin={this.props.origin} readFromAPI={this.readFromAPI} saveValues={this.saveValues} question_results={this.state.question_results} sharing_setting={this.state.sharing_setting} signedIn={this.state.signedIn} companyTotal={this.state.companyTotal} />
         </div>
       </div>
     );

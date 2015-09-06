@@ -7,7 +7,10 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
-    render json: @current_user, only: [:handle]
+    render json: {
+      uid: @current_user.uid,
+      company_total: 40
+    }
   end
 
   private
