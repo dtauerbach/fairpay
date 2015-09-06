@@ -7,7 +7,9 @@ module.exports = React.createClass({
   },
 
   getInitialState: function() {
-    return {current_value: ''}
+    return {
+        current_value: ''
+    }
   },
 
   updateQuestionResults: function(text) {
@@ -39,7 +41,7 @@ module.exports = React.createClass({
     var question_name = "question_" + this.getQuestionId() + "_textbox";
     return (
       <div>
-        <input type="text" name={question_name} className="question_textbox" placeholder={default_text} onChange={this.handleTextInputChange} />
+        <input type="text" name={question_name} className="question-textbox" placeholder={default_text} onChange={this.handleTextInputChange} />
         <input type="submit" value="Submit" onClick={this.handleTextBoxSubmit} />
       </div>
     );

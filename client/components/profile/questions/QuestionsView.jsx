@@ -8,7 +8,7 @@ module.exports = React.createClass({
     var link_location = "/profile/questions/" + this.props.current_question;
     return (
       <div className="questions-view">
-          <Link to={link_location}><em><h2>Profile</h2></em></Link>
+          <Link to={link_location}><h2>Profile</h2></Link>
         <QuestionsList question_data={this.props.question_data} question_results={this.props.question_results} />
       </div>
     );

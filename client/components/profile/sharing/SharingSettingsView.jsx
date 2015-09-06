@@ -6,7 +6,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div className="sharing-view">
-          <Link to="sharing"><em><h2>Sharing</h2></em></Link>
+          <Link to="sharing"><h2>Sharing</h2></Link>
       </div>
     );
   }
