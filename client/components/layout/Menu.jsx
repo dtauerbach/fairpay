@@ -18,6 +18,10 @@ module.exports = React.createClass({
   },
 
   render: function() {
+    var brandImageSource = this.props.origin + '/images/fairpay-logo.png';
+    var brandImage = <a href="#">
+                       <img src={brandImageSource} height="30px" alt="FairPay" />
+                     </a>;
     if (this.props.signedIn) {
       var signingLink = <li><a href="#" onClick={this.handleSignOutLink}>Sign Out</a></li>;
     }
@@ -25,7 +29,7 @@ module.exports = React.createClass({
       var signingLink = <li><a href={this.props.origin + '/request_token'}>Sign In</a></li>;
     }
     return (
-      <Navbar brand='FairPay' fixedTop>
+      <Navbar brand={brandImage} fixedTop>
         <Nav bsStyle='pills' pullRight>
           <NavItemLink to="about"> About </NavItemLink>
           <NavItemLink to="profile"> My Profile </NavItemLink>
