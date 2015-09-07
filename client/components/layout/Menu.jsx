@@ -20,7 +20,7 @@ module.exports = React.createClass({
   render: function() {
     var brandImageSource = this.props.origin + '/images/fairpay-logo-beta.png';
     var brandImage = <a href="#">
-                       <img src={brandImageSource} height="50px" alt="FairPay" />
+                       <img src={brandImageSource} height="60px" alt="FairPay" />
                      </a>;
     if (this.props.signedIn) {
       var signingLink = <li><a href="#" onClick={this.handleSignOutLink}>Sign Out</a></li>;
