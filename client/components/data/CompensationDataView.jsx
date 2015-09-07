@@ -38,21 +38,28 @@ module.exports = React.createClass({
            </div>;
   },
 
+  constructNeedToSignInDiv: function() {
+    var linkedInSigninImage = this.props.origin + '/images/Sign-In-Small---Default.png';
+    var connectFirstText = "Please connect via LinkedIn in order to view market data.";
+    return <div>
+             {connectFirstText}
+             <div className="row signin-internal">
+               <a href={this.props.origin + '/request_token'}>
+                 <img src={linkedInSigninImage} alt='Sign in'></img>
+               </a>
+             </div>
+             <div className="row linkedin-explanation">
+               <a href='#'> Why do I have to connect via LinkedIn? </a>
+             </div>
+           </div>
+  },
+
   render: function() {
-    var connectFirst = "Please connect via LinkedIn in order to view market data.";
     if (this.props.signedIn) {
       var mainContentDiv = this.constructNotEnoughDataDiv();
     }
     else {
-      var mainContentDiv = <div>
-                             {connectFirst}
-                             <div className="row signin-internal">
-                               <a href={this.props.origin + '/request_token'}>Sign In</a>
-                             </div>
-                             <div className="row linkedin-explanation">
-                                 <a href='#'> Why do I have to connect via LinkedIn? </a>
-                             </div>
-                           </div>
+      var mainContentDiv = this.constructNeedToSignInDiv();
     }
     return (
       <div className="row">

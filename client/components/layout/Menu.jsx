@@ -17,24 +17,32 @@ module.exports = React.createClass({
     location = '/';
   },
 
+  generateSigningLink: function() {
+    var linkedInSigninImage = this.props.origin + '/images/Sign-In-Small---Default.png';
+    if (this.props.signedIn) {
+      return <li><a href="#" onClick={this.handleSignOutLink}>Sign Out</a></li>;
+    }
+    else {
+      return <li>
+               <a href={this.props.origin + '/request_token'}>
+                 <img src={linkedInSigninImage} height='28px' alt='Sign in'></img>
+               </a>
+             </li>;
+    }
+  },
+
   render: function() {
     var brandImageSource = this.props.origin + '/images/fairpay-logo-beta.png';
     var brandImage = <a href="#">
                        <img src={brandImageSource} height="60px" alt="FairPay" />
                      </a>;
-    if (this.props.signedIn) {
-      var signingLink = <li><a href="#" onClick={this.handleSignOutLink}>Sign Out</a></li>;
-    }
-    else {
-      var signingLink = <li><a href={this.props.origin + '/request_token'}>Sign In</a></li>;
-    }
     return (
       <Navbar brand={brandImage} fixedTop>
         <Nav bsStyle='pills' pullRight>
           <NavItemLink to='about'> About </NavItemLink>
           <NavItemLink to='profile'> My Profile </NavItemLink>
           <NavItemLink to='data'> Market Data </NavItemLink>
-          {signingLink}
+          {this.generateSigningLink()}
         </Nav>
       </Navbar>
     );
