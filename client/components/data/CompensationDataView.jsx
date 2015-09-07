@@ -1,7 +1,9 @@
 var React = require('react');
 var ReactBootstrap = require('react-bootstrap');
-//var SocialIcon = require('react-social-icons');
+var ReactSocial = require('react-social');
 var ProgressBar = ReactBootstrap.ProgressBar;
+var FacebookButton = ReactSocial.FacebookButton;
+var TwitterButton = ReactSocial.TwitterButton;
 
 module.exports = React.createClass({
   getPercentageReporting: function() {
@@ -9,15 +11,18 @@ module.exports = React.createClass({
   },
 
   constructProgressBar: function() {
-    return <div className="progress-bar-container">
+    return <div className='progress-bar-container'>
              <ProgressBar active now={this.getPercentageReporting()} />
-      </div>;
+           </div>;
   },
 
   constructShareLinks: function() {
-    return <div className="sharelinks-container">
-          Social icons here
-    </div>;
+    var facebookIconLink = this.props.origin + '/images/facebook-share.png';
+    var twitterIconLink = this.props.origin + '/images/twitter-share.png';
+    return <div className='sharelinks-container'>
+             <FacebookButton url="www.fairpay.org"><img src={facebookIconLink} alt="Share on Facebook"></img></FacebookButton>
+             <TwitterButton url="www.fairpay.org"><img src={twitterIconLink} alt="Share on Twitter"></img></TwitterButton>
+           </div>;
   },
 
   constructNotEnoughDataDiv: function() {

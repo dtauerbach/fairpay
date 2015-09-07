@@ -31,9 +31,9 @@ module.exports = React.createClass({
     return (
       <Navbar brand={brandImage} fixedTop>
         <Nav bsStyle='pills' pullRight>
-          <NavItemLink to="about"> About </NavItemLink>
-          <NavItemLink to="profile"> My Profile </NavItemLink>
-          <NavItemLink to="data"> Market Data </NavItemLink>
+          <NavItemLink to='about'> About </NavItemLink>
+          <NavItemLink to='profile'> My Profile </NavItemLink>
+          <NavItemLink to='data'> Market Data </NavItemLink>
           {signingLink}
         </Nav>
       </Navbar>
