@@ -8,7 +8,7 @@ module.exports = React.createClass({
 
   getInitialState: function() {
     return {
-        current_value: ''
+      current_value: ''
     }
   },
 
@@ -28,8 +28,50 @@ module.exports = React.createClass({
     this.context.router.transitionTo('/profile');
   },
 
+  unmaskValue: function(maskedValue) {
+    return maskedValue.replace(/,/g, '');
+  },
+
+  maskValue: function(unmaskedValue) {
+    return unmaskedValue.replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+  },
+
+  handleMoneyInputChange: function(event) {
+    var unmaskedValue = this.unmaskValue(event.target.value);
+    if (this.validatePositiveInteger(unmaskedValue)) {
+      this.setState({
+        current_value: unmaskedValue
+      });
+      event.target.value = this.maskValue(unmaskedValue);
+    }
+    else {
+      // raise error
+      console.log('Form input error');
+      event.target.value = this.maskValue(this.state.current_value);
+    }
+  },
+
   handleTextInputChange: function(event) {
-    this.setState({current_value: event.target.value});
+    this.setState({
+      current_value: event.target.value
+    });
+  },
+
+  validatePositiveInteger: function(str) {
+    var n = ~~Number(str);
+    return String(n) === str && n >= 0;
+  },
+
+  handleNumericInputChange: function(event) {
+    if (this.validatePositiveInteger(event.target.value)) {
+      this.setState({
+        current_value: event.target.value
+      });
+    }
+    else {
+      // raise error
+      console.log('Form input error');
+    }
   },
 
   handleTextBoxSubmit: function(event) {
@@ -37,11 +79,11 @@ module.exports = React.createClass({
     this.context.router.transitionTo('/profile');
   },
 
-  constructTextBoxAnswer: function(default_text) {
+  constructTextBoxAnswer: function(default_text, onChangeFunction) {
     var question_name = "question_" + this.getQuestionId() + "_textbox";
     return (
       <div>
-        <input type="text" name={question_name} className="question-textbox" placeholder={default_text} onChange={this.handleTextInputChange} />
+        <input type="text" name={question_name} className="question-textbox" placeholder={default_text} onChange={onChangeFunction} />
         <input type="submit" value="Submit" onClick={this.handleTextBoxSubmit} />
       </div>
     );
@@ -76,13 +118,13 @@ module.exports = React.createClass({
         var answer_div = this.constructRadioAnswer(answer.answer_text);
         break;
       case 'titletextbox':
-        var answer_div = this.constructTextBoxAnswer(answer.default_text);
+        var answer_div = this.constructTextBoxAnswer(answer.default_text, this.handleTextInputChange);
         break;
       case 'moneytextbox':
-        var answer_div = this.constructTextBoxAnswer(answer.default_text);
+        var answer_div = this.constructTextBoxAnswer(answer.default_text, this.handleMoneyInputChange);
         break;
       case 'numerictextbox':
-        var answer_div = this.constructTextBoxAnswer(answer.default_text);
+        var answer_div = this.constructTextBoxAnswer(answer.default_text, this.handleNumericInputChange);
         break;
       default:
         var answer_div = <div className={answer_type}> {answer.answer_text} </div>

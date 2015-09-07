@@ -20,7 +20,7 @@ module.exports = React.createClass({
   generateSigningLink: function() {
     var linkedInSigninImage = this.props.origin + '/images/Sign-In-Small---Default.png';
     if (this.props.signedIn) {
-      return <li><a href="#" onClick={this.handleSignOutLink}>Sign Out</a></li>;
+      return <li><a href="#" onClick={this.handleSignOutLink}>Log Out</a></li>;
     }
     else {
       return <li>

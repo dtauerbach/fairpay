@@ -36,8 +36,7 @@
     "jquery": "~2.1.4",
     "less": "~2.5.1",
     "less-loader": "~2.2.0",
-    "react-social": "~0.1.6",
-    "react-social-icons": "~1.1.0"
+    "react-social": "~0.1.6"
   },
   "devDependencies": {
     "react": "*",
