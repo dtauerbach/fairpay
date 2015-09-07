@@ -18,6 +18,6 @@ module.exports = (
       <Route name="sharing" handler={SharingContentView} />
       <DefaultRoute name="defaultquestion" handler={QuestionContentView} />
     </Route>
-    <Route name="about" handler={AboutView} />
+    <DefaultRoute name="about" handler={AboutView} />
   </Route>
 );
