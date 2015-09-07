@@ -80,11 +80,11 @@ module.exports = React.createClass({
   },
 
   constructTextBoxAnswer: function(default_text, onChangeFunction) {
-    var question_name = "question_" + this.getQuestionId() + "_textbox";
+    var question_name = 'question_' + this.getQuestionId() + '_textbox';
     return (
       <div>
-        <input type="text" name={question_name} className="question-textbox" placeholder={default_text} onChange={onChangeFunction} />
-        <input type="submit" value="Submit" onClick={this.handleTextBoxSubmit} />
+        <input type='text' name={question_name} className='question-textbox' placeholder={default_text} onChange={onChangeFunction} />
+        <input type='submit' value='Submit' onClick={this.handleTextBoxSubmit} />
       </div>
     );
   },
@@ -95,11 +95,11 @@ module.exports = React.createClass({
   },
 
   constructRadioAnswer: function(answer_text) {
-      var radio_name = "question_" + this.getQuestionId() + "_radio";
+      var radio_name = 'question_' + this.getQuestionId() + '_radio';
       return (
           <div>
-            <label className="question-button">
-              <input type="radio" name={radio_name} className="question-radio" value={answer_text} onChange={this.handleRadioChange} checked={this.getCheckedStatus(answer_text)} /> {answer_text}
+            <label className='question-button'>
+              <input type='radio' name={radio_name} className='question-radio' value={answer_text} onChange={this.handleRadioChange} checked={this.getCheckedStatus(answer_text)} /> {answer_text}
             </label>
           </div>
       );
@@ -146,7 +146,11 @@ module.exports = React.createClass({
     }
     var question = this.getQuestion();
     if (question === null) {
-      return <div> Submit Your Data </div>;
+      var checkMarkUrl = this.props.origin + '/images/green-check.png';
+      return <div className='completed-profile'>
+               <img src={checkMarkUrl} width='30%'></img>
+               <div>Profile Complete!</div>
+             </div>;
     }
     var answers = question.answers;
     var answer_divs = [];
@@ -154,9 +158,9 @@ module.exports = React.createClass({
         answer_divs.push(this.constructQuestionDiv(answers[id]));
     }
     return (
-      <div id="profile-content-view" className="col-md-8 centered">
-                      <div className="question_title"> <h1>{question.question_title}</h1> </div>
-          <div className="answer-group btn-group">
+      <div id='profile-content-view' className='col-md-8 centered'>
+                      <div className='question_title'> <h1>{question.question_title}</h1> </div>
+          <div className='answer-group btn-group'>
               {answer_divs}
           </div>
       </div>
