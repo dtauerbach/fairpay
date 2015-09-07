@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
   def current_user
     render json: {
       uid: @current_user.uid,
-      company_total: 40
+      company_total: company_total
     }
   end
 
@@ -21,6 +21,10 @@ class ApplicationController < ActionController::API
     headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     headers['Access-Control-Max-Age'] = '1728000'
+  end
+
+  def company_total
+    Datapoint.count
   end
 
   def authenticate_request
