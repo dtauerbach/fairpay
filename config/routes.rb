@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post 'datapoints', to: 'datapoints#create_or_update'
 
   resources :questions, only: [:index]
+  match '*all', to: 'application#index', via: [:get]
 end
