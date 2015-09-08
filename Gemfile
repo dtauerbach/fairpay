@@ -13,3 +13,7 @@ group :development, :test do
   gem 'seed_dump'
   gem 'pry'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
