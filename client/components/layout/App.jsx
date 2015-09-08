@@ -65,6 +65,7 @@ module.exports = React.createClass({
           currentUser: user.uid,
           companyTotal: user.company_total
       });
+      this.writeDatapointToAPI();
       console.log("current user is " + user.uid);
       console.log("company total is " + user.company_total);
     }.bind(this));
