@@ -35,25 +35,29 @@ module.exports = React.createClass({
     return -1;
   },
 
-  render: function() {
-    var divstyle = {
-        backgroundColor: 'cyan',
-        padding: '50px',
-        margin: '100px'
-    };
-    question_settings = [];
-    for (prop in this.props.question_results) {
+  generateDevelopmentDebuggingViewport: function() {
+    if (process.env.NODE_ENV === 'development') {
+      question_settings = [];
+      for (prop in this.props.question_results) {
         question_settings.push(<div>{prop}:{this.props.question_results[prop]}</div>);
+      }
+    return  <div className='development-debug row'>
+              <center><p>Sharing settings: {this.props.sharing_setting}</p><p>Question settings: {question_settings}</p></center>
+      </div>;
     }
+    else {
+      return <div></div>;
+    }
+  },
+
+  render: function() {
     return (
       <div className='profile-view'>
         <div className='row'>
           <ProfilePanel question_data={this.state.question_data} current_question={this.getCurrentQuestion()} question_results={this.props.question_results} />
           <RouteHandler origin={this.props.origin} saveValues={this.props.saveValues} sharing_setting={this.props.sharing_setting} question_data={this.state.question_data} question_results={this.props.question_results} current_question={this.getCurrentQuestion()} />
         </div>
-        <div className='row' style={divstyle}>
-          <center><p>Sharing settings: {this.props.sharing_setting}</p><p>Question settings: {question_settings}</p></center>
-        </div>
+        {this.generateDevelopmentDebuggingViewport()}
       </div>
     );
   }
