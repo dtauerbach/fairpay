@@ -24,7 +24,7 @@ module.exports = React.createClass({
   },
 
   getCurrentQuestion: function() {
-    if (!("1" in this.props.question_results))
+    if (!('1' in this.props.question_results))
       return 1;
     // TODO move this hardcoded sanity check limit elsewhere
     for (var i=1; i < 500; i++) {
@@ -46,14 +46,14 @@ module.exports = React.createClass({
         question_settings.push(<div>{prop}:{this.props.question_results[prop]}</div>);
     }
     return (
-      <div>
-      <div id="profile-view" className="row">
+      <div className='profile-view'>
+        <div className='row'>
           <ProfilePanel question_data={this.state.question_data} current_question={this.getCurrentQuestion()} question_results={this.props.question_results} />
           <RouteHandler origin={this.props.origin} saveValues={this.props.saveValues} sharing_setting={this.props.sharing_setting} question_data={this.state.question_data} question_results={this.props.question_results} current_question={this.getCurrentQuestion()} />
-      </div>
-      <div className="row" style={divstyle}>
+        </div>
+        <div className='row' style={divstyle}>
           <center><p>Sharing settings: {this.props.sharing_setting}</p><p>Question settings: {question_settings}</p></center>
-      </div>
+        </div>
       </div>
     );
   }

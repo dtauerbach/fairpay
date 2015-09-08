@@ -1,8 +1,9 @@
 @base: #f938ab;
 @base-font: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-@grey: #dfdfdf;
+@light-grey: #dfdfdf;
 @dark-grey: #333;
 @fp-green: #8cc63f;
+@fp-grey: #3a3a3c;
 
 /*************** mixins ****************/
 .large-font {
@@ -25,8 +26,8 @@
 
 .link-font {
   font-family: @base-font;
-  line-height: 1.2em;
-  font-size: 1.2em;
+  line-height: 1.3em;
+  font-size: 1.3em;
   font-weight: 500;
 }
 
@@ -50,6 +51,7 @@ h2 {
   font-family: @base-font;
   font-weight: 700;
   letter-spacing: 1px;
+  color: @fp-grey;
 }
 
 ul {
@@ -57,7 +59,7 @@ ul {
 }
 
 a {
-  color: #222;
+  color: #777;
 }
 
 a:hover {
@@ -129,14 +131,20 @@ a, a:focus, a:active {
 }
 
 .question-textbox {
-    width: 90%;
-    height: 100px;
-    font-size: 24px;
-    margin: 30px;
-    border-radius: 25px;
+  width: 90%;
+  height: 100px;
+  font-size: 24px;
+  margin: 30px;
+  border-radius: 25px;
+}
+
+.profile-view {
+  width: 60%;
+  margin: 6em auto;
 }
 
 .profile-panel {
+  color: @fp-grey;
   height: 100%;
   margin-top: 20px;
 }
@@ -207,7 +215,7 @@ a, a:focus, a:active {
 
 .navbar-fixed-top {
   height: 70px;
-  background: @grey;
+  background: @light-grey;
 }
 
 .nav > li > a {
