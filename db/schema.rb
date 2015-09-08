@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20150824180017) do
     t.string "state", null: false
   end
 
+  add_index "oauths", ["state"], name: "index_oauths_on_state", using: :btree
+
   create_table "questions", force: :cascade do |t|
     t.integer  "order_id"
     t.string   "datapoint_field"
