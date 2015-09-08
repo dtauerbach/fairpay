@@ -15,13 +15,14 @@ var NavItemLink = ReactRouterBootstrap.NavItemLink;
 module.exports = React.createClass({
   handleSignOutLink: function() {
     sessionStorage.setItem('jwt','');
+    this.props.resetValues();
     location = '/';
   },
 
   generateSigningLink: function() {
     var linkedInSigninImage = this.props.origin + '/images/Sign-In-Small---Default.png';
     if (this.props.signedIn) {
-      return <li><a href='#about' onClick={this.handleSignOutLink}>Log Out</a></li>;
+      return <li><a href='#' onClick={this.handleSignOutLink}>Log Out</a></li>;
     }
     else {
       return <li>

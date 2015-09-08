@@ -32,6 +32,10 @@ module.exports = React.createClass({
       };
   },
 
+  resetValues: function() {
+    localStorage.setItem('fairpay', JSON.stringify({}));
+  },
+
   saveValues: function(dictionary) {
     this.setState(dictionary, function (){
       localStorage.setItem('fairpay', JSON.stringify(this.state));
@@ -114,7 +118,7 @@ module.exports = React.createClass({
 
     return (
       <div>
-        <Menu origin={this.props.origin} sendMenuClick={this.handleMenuClick} signedIn={this.state.signedIn} />
+        <Menu origin={this.props.origin} sendMenuClick={this.handleMenuClick} signedIn={this.state.signedIn} resetValues={this.resetValues} />
         <div className="content">
           <RouteHandler origin={this.props.origin} readFromAPI={this.readFromAPI} saveValues={this.saveValues} question_results={this.state.question_results} sharing_setting={this.state.sharing_setting} signedIn={this.state.signedIn} companyTotal={this.state.companyTotal} />
         </div>
