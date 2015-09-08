@@ -25,18 +25,18 @@ module.exports = React.createClass({
 
     return (
       <div>
-        <div className="row">
-          <Jumbotron className="intro-body" style={introStyle}>
-            <div className="fp-container">
+        <div className='row'>
+          <Jumbotron className='intro-body' style={introStyle}>
+            <div className='fp-container'>
               <h1>What are you worth?</h1>
-                <Button onClick={this.handleButtonClick} className="btn btn-circle page-scroll">
+                <Button onClick={this.handleButtonClick} className='btn btn-circle page-scroll'>
                   <img src={this.props.origin + '/images/double-arrow-right-128.png'} height='22px'/>
                 </Button>
             </div>
           </Jumbotron>
         </div>
-        <div className="row">
-          <section className="about-section">
+        <div className='row'>
+          <section id='about' className='about-section'>
             <div>
               <h2>About FairPay</h2>
               <p> {fairPayAboutTextOne} </p>
