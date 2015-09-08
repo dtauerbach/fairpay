@@ -40,11 +40,8 @@ ActiveRecord::Schema.define(version: 20150824180017) do
   add_index "datapoints", ["uid"], name: "index_datapoints_on_uid", unique: true, using: :btree
 
   create_table "oauths", force: :cascade do |t|
-    t.string "token",  null: false
-    t.string "secret", null: false
+    t.string "state", null: false
   end
-
-  add_index "oauths", ["token"], name: "index_oauths_on_token", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.integer  "order_id"

@@ -117,7 +117,7 @@ module.exports = React.createClass({
       case 'Radio':
         var answer_div = this.constructRadioAnswer(answer.answer_text);
         break;
-      case 'titletextbox':
+      case 'textbox':
         var answer_div = this.constructTextBoxAnswer(answer.default_text, this.handleTextInputChange);
         break;
       case 'moneytextbox':

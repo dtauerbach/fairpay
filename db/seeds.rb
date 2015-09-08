@@ -39,7 +39,7 @@ Question.create!([
                   },
   {order_id: 3, question_title: "My title is...", sidebar_question_title: "Title", datapoint_field: "title", answers: {
                       1 => {
-                        "answer_type" => "titletextbox",
+                        "answer_type" => "textbox",
                         "default_text" => "e.g. Software Engineer"
                       }
                     }
@@ -53,7 +53,7 @@ Question.create!([
                   },
   {order_id: 5, question_title: "My level is...", sidebar_question_title: "Level", datapoint_field: "level", answers: {
                       1 => {
-                        "answer_type" => "numerictextbox",
+                        "answer_type" => "textbox",
                         "default_text" => "e.g. 4"
                       },
                       2 => {
@@ -63,7 +63,7 @@ Question.create!([
                       }
                     }
                   },
-  {order_id: 6, question_title: "I identify as a...", sidebar_question_title: "Gender", datapoint_field: "gender", answers: {
+  {order_id: 6, question_title: "I identify as a...", sidebar_question_title: "Gender", datapoint_field: "gender", answers:{
                       1 => {
                         "answer_type" => "Radio",
                         "answer_text" => "Man"
