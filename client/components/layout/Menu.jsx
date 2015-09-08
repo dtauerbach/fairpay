@@ -6,6 +6,7 @@ var Link = Router.Link;
 var Navbar = ReactBootstrap.Navbar;
 var Nav = ReactBootstrap.Nav;
 var NavItem = ReactBootstrap.NavItem;
+var CollapsibleNav = ReactBootstrap.CollapsibleNav;
 var DropdownButton = ReactBootstrap.DropdownButton;
 var MenuItem = ReactBootstrap.MenuItem;
 var Button = ReactBootstrap.Button;
@@ -33,17 +34,19 @@ module.exports = React.createClass({
 
   render: function() {
     var brandImageSource = this.props.origin + '/images/fairpay-logo-beta.png';
-    var brandImage = <a href='#about'>
+    var brandImage = <a href='/'>
                        <img src={brandImageSource} height='60px' alt='FairPay' />
                      </a>;
     return (
-      <Navbar brand={brandImage} fixedTop>
-        <Nav bsStyle='pills' pullRight>
-           <li><a href='/#about'> About </a></li>
-          <NavItemLink to='profile'> My Profile </NavItemLink>
-          <NavItemLink to='data'> Market Data </NavItemLink>
-          {this.generateSigningLink()}
-        </Nav>
+      <Navbar brand={brandImage} toggleNavKey={0} fixedTop>
+        <CollapsibleNav eventKey={0}>
+          <Nav bsStyle='pills' pullRight>
+            <NavItem href='/#about'> About </NavItem>
+            <NavItemLink to='profile'> My Profile </NavItemLink>
+            <NavItemLink to='data'> Market Data </NavItemLink>
+            {this.generateSigningLink()}
+          </Nav>
+        </CollapsibleNav>
       </Navbar>
     );
   }
