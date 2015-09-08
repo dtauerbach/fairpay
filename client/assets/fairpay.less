@@ -1,6 +1,7 @@
 @base: #f938ab;
 @base-font: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
+/*************** mixins ****************/
 .large-font {
   font-family: @base-font;
   line-height: 2em;
@@ -19,20 +20,7 @@
   font-size: 1.5em;
 }
 
-.completed-profile {
-  .small-font;
-  text-align: center;
-}
-
-.intro-body {
-  .large-font;
-  text-align: center;
-  height: 1000px;
-  padding: 0;
-  display: table;
-  width: 100%;
-}
-
+/*************** top-level elements ****************/
 [type='radio'] {
   visibility: hidden;
 }
@@ -52,6 +40,43 @@ h2 {
   font-family: @base-font;
   font-weight: 700;
   letter-spacing: 1px;
+}
+
+ul {
+ list-style-type: none;
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  color: #f0f;
+  text-decoration: none;
+}
+
+a:active, a:focus {
+  color: #333;
+  text-decoration: none;
+}
+
+a, a:focus, a:active {
+  outline: none;
+}
+
+/*************** classes ****************/
+.completed-profile {
+  .small-font;
+  text-align: center;
+}
+
+.intro-body {
+  .large-font;
+  text-align: center;
+  height: 1000px;
+  padding: 0;
+  display: table;
+  width: 100%;
 }
 
 .question-button {
@@ -101,38 +126,9 @@ h2 {
     border-radius: 25px;
 }
 
-body {
-  padding-top: 10px;
-}
-@media (max-width: 979px) {
-  body {
-    padding-top: 40px;
-    background: #F5F8FA;
-    color: #777;
-  }
-}
-@media (max-width: 450px) {
-  body {
-    padding-top: 100px;
-    background: #F5F8FA;
-    color: #777;
-  }
-}
-@media (max-width: 250px) {
-  body {
-    padding-top: 200px;
-    background: #F5F8FA;
-    color: #777;
-  }
-}
-
 .profile-panel {
   height: 100%;
   margin-top: 20px;
-}
-
-ul {
- list-style-type: none;
 }
 
 .sharing-view {
@@ -148,20 +144,6 @@ ul {
   font-weight: 700;
   letter-spacing: 1px;
   font-size: 1.3em;
-}
-
-a {
-  color: #000;
-}
-
-a:hover {
-  color: #f0f;
-  text-decoration: none;
-}
-
-a:active, a:focus {
-  color: #333;
-  text-decoration: none;
 }
 
 .sharing-setting-description {
@@ -184,10 +166,6 @@ a:active, a:focus {
 .content {
   margin: 4em auto;
   line-height: 1.5em;
-}
-
-a, a:focus, a:active {
-  outline: none;
 }
 
 .compensation-data-view {
