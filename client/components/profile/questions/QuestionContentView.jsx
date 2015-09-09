@@ -24,8 +24,13 @@ module.exports = React.createClass({
   },
 
   handleRadioChange: function(event) {
-    this.updateQuestionResults(event.target.value);
-    this.context.router.transitionTo('/profile');
+    // awful hack
+    if (event.target.value == 'None of the above')
+      this.context.router.transitionTo('/faq#company');
+    else {
+      this.updateQuestionResults(event.target.value);
+      this.context.router.transitionTo('/profile');
+    }
   },
 
   unmaskValue: function(maskedValue) {
