@@ -45,6 +45,8 @@ module.exports = React.createClass({
             <NavItem href='/#about'> About </NavItem>
             <NavItemLink to='profile'> My Profile </NavItemLink>
             <NavItemLink to='data'> Market Data </NavItemLink>
+            <NavItemLink to='faq'> FAQ </NavItemLink>
+            <NavItemLink to='privacy'> Privacy </NavItemLink>
             {this.generateSigningLink()}
           </Nav>
         </CollapsibleNav>

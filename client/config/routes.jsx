@@ -6,6 +6,8 @@ var QuestionContentView = require('../components/profile/questions/QuestionConte
 var SharingContentView = require('../components/profile/sharing/SharingContentView.jsx');
 var CompensationDataView = require('../components/data/CompensationDataView.jsx');
 var AboutView = require('../components/about/AboutView.jsx');
+var FaqView = require('../components/faq/FaqView.jsx');
+var PrivacyView = require('../components/privacy/PrivacyView.jsx');
 
 var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
@@ -18,6 +20,8 @@ module.exports = (
       <Route name="sharing" handler={SharingContentView} />
       <DefaultRoute name="defaultquestion" handler={QuestionContentView} />
     </Route>
+    <Route name="faq" handler={FaqView} />
+    <Route name="privacy" handler={PrivacyView} />
     <DefaultRoute name="about" handler={AboutView} />
   </Route>
 );
