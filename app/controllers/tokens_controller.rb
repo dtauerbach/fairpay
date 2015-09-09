@@ -17,10 +17,11 @@ class TokensController < ApplicationController
       redirect_uri: ENV['OAUTH_CALLBACK']
     )
     response = access_token.get(
-      'https://api.linkedin.com/v1/people/~?format=json'
+      'https://api.linkedin.com/v1/people/~:(id,num-connections,positions)?format=json'
     )
     json_response = JSON.parse(response.body)
     user = User.find_or_create_by(uid: json_response["id"])
+    user.synchronous_validate_linkedin(json_response)
     jwt = JWT.encode({uid: user.uid, exp: 1.day.from_now.to_i}, Rails.application.secrets.secret_key_base)
     redirect_to ENV['ORIGIN'] + "?jwt=#{jwt}"
   end
