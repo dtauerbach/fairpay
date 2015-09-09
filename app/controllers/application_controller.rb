@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+  force_ssl if: :ssl_configured?
   before_action :allow_cross_origin_requests, if: proc { Rails.env.development? }
   before_action :authenticate_request, only: [:current_user]
 
@@ -29,6 +30,10 @@ class ApplicationController < ActionController::API
 
   def company_total
     Datapoint.count
+  end
+
+  def ssl_configured?
+    !Rails.env.development?
   end
 
   def authenticate_request
