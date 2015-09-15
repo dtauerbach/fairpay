@@ -7,7 +7,7 @@ module.exports = React.createClass({
     return (
       <div className='col-md-4 profile-panel'>
           <QuestionsView question_data={this.props.question_data} current_question={this.props.current_question} question_results={this.props.question_results} />
-          <SharingSettingsView />
+          <SharingSettingsView sharing_setting={this.props.sharing_setting} />
       </div>
     );
   }

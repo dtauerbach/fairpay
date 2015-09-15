@@ -54,7 +54,7 @@ module.exports = React.createClass({
     return (
       <div className='profile-view'>
         <div className='row'>
-          <ProfilePanel question_data={this.state.question_data} current_question={this.getCurrentQuestion()} question_results={this.props.question_results} />
+          <ProfilePanel question_data={this.state.question_data} current_question={this.getCurrentQuestion()} question_results={this.props.question_results} sharing_setting={this.props.sharing_setting} />
           <RouteHandler origin={this.props.origin} saveValues={this.props.saveValues} sharing_setting={this.props.sharing_setting} question_data={this.state.question_data} question_results={this.props.question_results} current_question={this.getCurrentQuestion()} />
         </div>
         {this.generateDevelopmentDebuggingViewport()}

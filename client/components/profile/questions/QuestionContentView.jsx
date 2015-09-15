@@ -24,7 +24,7 @@ module.exports = React.createClass({
   },
 
   handleRadioChange: function(event) {
-    // awful hack
+    // TODO: awful hack
     if (event.target.value == 'None of the above')
       this.context.router.transitionTo('/faq#company');
     else {
