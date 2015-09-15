@@ -52,8 +52,14 @@ module.exports = React.createClass({
     else {
       // raise error
       console.log('Form input error');
-      event.target.value = this.maskValue(this.state.current_value);
+      this.addErrorSnippet('Input must be a positive monetary value.');
     }
+  },
+
+  addErrorSnippet: function(error_string) {
+    this.setState({
+      error_snippet: error_string
+    });
   },
 
   handleTextInputChange: function(event) {
@@ -164,9 +170,14 @@ module.exports = React.createClass({
     }
     return (
       <div id='profile-content-view' className='col-md-8 centered'>
-                      <div className='question_title'> <h1>{question.question_title}</h1> </div>
+          <div className='question_title'>
+            <h1>{question.question_title}</h1>
+          </div>
           <div className='answer-group btn-group'>
               {answer_divs}
+          </div>
+          <div className='error-snippet'>
+              {this.state.error_snippet}
           </div>
       </div>
     );
