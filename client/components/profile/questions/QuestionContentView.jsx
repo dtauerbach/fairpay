@@ -8,7 +8,8 @@ module.exports = React.createClass({
 
   getInitialState: function() {
     return {
-      current_value: ''
+      current_value: '',
+      error_snippet: ''
     }
   },
 
@@ -30,6 +31,13 @@ module.exports = React.createClass({
     return -1;
   },
 
+  clearState: function() {
+    this.setState({
+      current_value: '',
+      error_snippet: ''
+    });
+  },
+
   updateQuestionResults: function(text) {
     if (!(text))
       return;
@@ -39,6 +47,7 @@ module.exports = React.createClass({
     question_dict['question_results'] = this.props.question_results;
     question_dict['question_results'][this.getQuestionId()] = text;
     this.props.saveValues(question_dict);
+    this.clearState();
     var nextQuestion = this.getNextQuestion();
     if (nextQuestion < 1)
       this.context.router.transitionTo('/data');
@@ -115,7 +124,7 @@ module.exports = React.createClass({
     var question_name = 'question_' + this.getQuestionId() + '_textbox';
     return (
       <div>
-        <input type='text' name={question_name} className='question-textbox' placeholder={default_text} onChange={onChangeFunction} />
+        <input type='text' key={this.getQuestionId()} name={question_name} className='question-textbox' placeholder={default_text} onChange={onChangeFunction} />
         <input type='submit' value='Submit' onClick={this.handleTextBoxSubmit} />
       </div>
     );
@@ -160,8 +169,8 @@ module.exports = React.createClass({
         break;
       default:
         var answer_div = <div className={answer_type}> {answer.answer_text} </div>
-      }
-      return answer_div;
+    }
+    return answer_div;
   },
 
   getQuestion: function() {

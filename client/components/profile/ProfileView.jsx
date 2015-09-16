@@ -28,7 +28,7 @@ module.exports = React.createClass({
     if (!('1' in this.props.question_results))
       return 1;
     var numQuestions = Object.keys(this.state.question_data).length;
-    for (var i=1; i < numQuestions; i++) {
+    for (var i=1; i < numQuestions + 1; i++) {
       if (!(i.toString() in this.props.question_results)) {
         return i;
       }
