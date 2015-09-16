@@ -20,14 +20,13 @@ module.exports = React.createClass({
   },
 
   generateSigningLink: function() {
-    var linkedInSigninImage = this.props.origin + '/images/Sign-In-Small---Default.png';
     if (this.props.signedIn) {
       return <li><a href='#' onClick={this.handleSignOutLink}>Log Out</a></li>;
     }
     else {
       return <li>
                <a href={this.props.origin + '/request_token'}>
-                 <img src={linkedInSigninImage} height='28px' alt='Sign in'></img>
+                 Sign in with LinkedIn
                </a>
              </li>;
     }
@@ -41,7 +40,7 @@ module.exports = React.createClass({
     return (
       <Navbar brand={brandImage} toggleNavKey={0} fixedTop>
         <CollapsibleNav eventKey={0}>
-          <Nav bsStyle='pills' pullRight>
+          <Nav navbar right>
             <NavItemLink to='about'> About </NavItemLink>
             <NavItemLink to='profile'> My Profile </NavItemLink>
             <NavItemLink to='data'> Market Data </NavItemLink>

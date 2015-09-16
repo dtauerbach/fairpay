@@ -26,14 +26,16 @@
 
 .link-font {
   font-family: @base-font;
-  line-height: 1.3em;
-  font-size: 1.3em;
+  line-height: 0.85em;
+  font-size: 0.85em;
   font-weight: 500;
 }
 
 /*************** top-level elements ****************/
 [type='radio'] {
   visibility: hidden;
+  height: 1px;
+  width: 1px;
 }
 
 input:focus {
@@ -98,9 +100,8 @@ a, a:focus, a:active {
   color:#fff;
   border-radius:8px;
   padding:1em;
-  margin:1em;
+  margin:1em 0.5em;
   cursor:pointer;
-  display: block;
 }
 
 .sharing-settings-button {
@@ -139,7 +140,7 @@ a, a:focus, a:active {
 }
 
 .profile-view {
-  width: 60%;
+  width: 80%;
   margin: 6em auto;
 }
 
@@ -147,6 +148,7 @@ a, a:focus, a:active {
   color: @fp-grey;
   height: 100%;
   margin-top: 20px;
+  border-right: thick double #dfdfdf;
 }
 
 .sharing-view {
@@ -186,6 +188,14 @@ a, a:focus, a:active {
   line-height: 1.5em;
 }
 
+.radio-button-div {
+  display: inline;
+}
+
+.padding-right {
+  padding-right: 12px;
+}
+
 .compensation-data-view {
   .medium-font;
   margin: 2em auto;
@@ -220,12 +230,12 @@ a, a:focus, a:active {
 
 .nav > li > a {
   .link-font;
-  line-height: 40px;
-  height: 70px;
+  margin: 16px 4px;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   background-color: @dark-grey;
+  margin: 16px 4px;
 }
 
 .navbar-header > a {
@@ -313,7 +323,7 @@ a, a:focus, a:active {
 }
 
 .error-snippet {
-  .link-font;
+  .small-font;
   color: red;
   margin: 1em;
 }

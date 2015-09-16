@@ -138,7 +138,7 @@ module.exports = React.createClass({
   constructRadioAnswer: function(answer_text) {
     var radio_name = 'question_' + this.getQuestionId() + '_radio';
     return (
-      <div>
+      <div className='radio-button-div'>
         <label className='question-button'>
           <input type='radio' name={radio_name} className='question-radio' value={answer_text} onChange={this.handleRadioChange} checked={this.getCheckedStatus(answer_text)} /> {answer_text}
         </label>
@@ -205,10 +205,10 @@ module.exports = React.createClass({
           <div className='question_title'>
             <h1>{question.question_title}</h1>
           </div>
-          <div className='answer-group btn-group'>
+          <div>
               {answer_divs}
           </div>
-          <div className='error-snippet'>
+          <div className='error-snippet centered'>
               {this.state.error_snippet}
           </div>
       </div>
