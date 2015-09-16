@@ -12,6 +12,24 @@ module.exports = React.createClass({
     }
   },
 
+  getNextQuestion: function() {
+    var thisQuestionInt = parseInt(this.getQuestionId());
+    var numQuestions = Object.keys(this.props.question_data).length;
+    // go to the next unanswered question
+    for (var i = thisQuestionInt; i < numQuestions+1; i++) {
+      if (!(i.toString() in this.props.question_results)) {
+        return i;
+      }
+    }
+    // head back to earlier questions that were skipped
+    for (var i = 1; i < thisQuestionInt; i++) {
+      if (!(i.toString() in this.props.question_results)) {
+        return i;
+      }
+    }
+    return -1;
+  },
+
   updateQuestionResults: function(text) {
     if (!(text))
       return;
@@ -21,6 +39,11 @@ module.exports = React.createClass({
     question_dict['question_results'] = this.props.question_results;
     question_dict['question_results'][this.getQuestionId()] = text;
     this.props.saveValues(question_dict);
+    var nextQuestion = this.getNextQuestion();
+    if (nextQuestion < 1)
+      this.context.router.transitionTo('/data');
+    else
+      this.context.router.transitionTo('/profile/questions/' + nextQuestion);
   },
 
   handleRadioChange: function(event) {
@@ -29,7 +52,6 @@ module.exports = React.createClass({
       this.context.router.transitionTo('/faq#company');
     else {
       this.updateQuestionResults(event.target.value);
-      this.context.router.transitionTo('/profile');
     }
   },
 
@@ -87,7 +109,6 @@ module.exports = React.createClass({
 
   handleTextBoxSubmit: function(event) {
     this.updateQuestionResults(this.state.current_value);
-    this.context.router.transitionTo('/profile');
   },
 
   constructTextBoxAnswer: function(default_text, onChangeFunction) {
@@ -106,14 +127,14 @@ module.exports = React.createClass({
   },
 
   constructRadioAnswer: function(answer_text) {
-      var radio_name = 'question_' + this.getQuestionId() + '_radio';
-      return (
-          <div>
-            <label className='question-button'>
-              <input type='radio' name={radio_name} className='question-radio' value={answer_text} onChange={this.handleRadioChange} checked={this.getCheckedStatus(answer_text)} /> {answer_text}
-            </label>
-          </div>
-      );
+    var radio_name = 'question_' + this.getQuestionId() + '_radio';
+    return (
+      <div>
+        <label className='question-button'>
+          <input type='radio' name={radio_name} className='question-radio' value={answer_text} onChange={this.handleRadioChange} checked={this.getCheckedStatus(answer_text)} /> {answer_text}
+        </label>
+      </div>
+    );
   },
 
   getQuestionId: function() {
@@ -160,7 +181,9 @@ module.exports = React.createClass({
       var checkMarkUrl = this.props.origin + '/images/green-check.png';
       return <div className='completed-profile'>
                <img src={checkMarkUrl} width='30%'></img>
-               <div>Profile Complete!</div>
+               <div className='link-text'>
+                 Profile Complete!
+               </div>
              </div>;
     }
     var answers = question.answers;

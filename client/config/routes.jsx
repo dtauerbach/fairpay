@@ -13,15 +13,15 @@ var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
 
 module.exports = (
-  <Route name="app" path="/" handler={App}>
-    <Route name="data" handler={CompensationDataView} />
-    <Route name="profile" handler={ProfileView}>
-      <Route name="questions" path="/profile/questions/:id" handler={QuestionContentView} />
-      <Route name="sharing" handler={SharingContentView} />
-      <DefaultRoute name="defaultquestion" handler={QuestionContentView} />
+  <Route name='app' path='/' handler={App}>
+    <Route name='data' handler={CompensationDataView} />
+    <Route name='profile' handler={ProfileView}>
+      <Route name='questions' path='/profile/questions/:id' handler={QuestionContentView} />
+      <Route name='sharing' handler={SharingContentView} />
+      <DefaultRoute name='defaultquestion' handler={QuestionContentView} />
     </Route>
-    <Route name="faq" handler={FaqView} />
-    <Route name="privacy" handler={PrivacyView} />
-    <DefaultRoute name="about" handler={AboutView} />
+    <Route name='faq' handler={FaqView} />
+    <Route name='privacy' handler={PrivacyView} />
+    <DefaultRoute name='about' handler={AboutView} />
   </Route>
 );

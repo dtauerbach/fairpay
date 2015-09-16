@@ -5,9 +5,10 @@ var ProfilePanel = require('./ProfilePanel.jsx');
 
 module.exports = React.createClass({
   getInitialState: function() {
-    return {form_values: {},
-            question_data: [],
-            };
+    return {
+      form_values: {},
+      question_data: [],
+    };
   },
 
   componentDidMount: function() {
@@ -26,8 +27,8 @@ module.exports = React.createClass({
   getCurrentQuestion: function() {
     if (!('1' in this.props.question_results))
       return 1;
-    // TODO move this hardcoded sanity check limit elsewhere
-    for (var i=1; i < 500; i++) {
+    var numQuestions = Object.keys(this.state.question_data).length;
+    for (var i=1; i < numQuestions; i++) {
       if (!(i.toString() in this.props.question_results)) {
         return i;
       }
