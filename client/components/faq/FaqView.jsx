@@ -18,12 +18,12 @@ module.exports = React.createClass({
 
             <div className='faq-item' id='sensitive'>
             <p>Q: Isn't compensation data sensitive information?</p>
-            <p>A: Companies will say that it is, and that it is not generally "safe" to share. However, we think that this is your choice to make, that employees are empowered by sharing compensation information, and that employees as a whole stand to benefit from greater transparency.</p>
+            <p>A: Companies will say that it is, and that it is not generally "safe" to share. However, we think that this is your choice to make, and that employees are empowered by sharing compensation information and stand to benefit from greater transparency.</p>
             </div>
 
             <div className='faq-item' id='legal'>
             <p>Q: Is it legal to share my compensation information?</p>
-            <p>A: Please check with your local jurisdiction and share only isofar as you are legally able to do so. We cannot offer legal advice. Here is some background for US readers.</p>
+            <p>A: Please check with your local jurisdiction and share only isofar as you are legally able to do so. We cannot offer legal advice. Here is some <a href='http://www.npr.org/2014/04/13/301989789/pay-secrecy-policies-at-work-often-illegal-and-misunderstood'>background</a> for US readers.</p>
             </div>
 
             <div className='faq-item' id='why-linked-in'>
@@ -37,23 +37,23 @@ module.exports = React.createClass({
             </div>
 
             <div className='faq-item' id='no-linked-in'>
-            <p>Q: But I don't have a LinkedIn profile that I use?</p>
-            <p>A: We think that's rad, and aren't huge LinkedIn users ourselves, but unfortunately, that's just how the service works right now. We hope to add more verification mechanisms in the future.</p>
+            <p>Q: But I don't have a LinkedIn profile that I use! Help?</p>
+            <p>A: We think that's rad but, unfortunately, that's just how the service works right now. We hope to add more verification mechanisms in the future.</p>
             </div>
 
             <div className='faq-item' id='sharing'>
             <p>Q: What determines what information I am able to view?</p>
-            <p>A: We are iterating on this, but the philosophy is that we display information back to you to the extent that you share it. For example, if you choose not to share your RSU grant, then you will not be able to view any information -- aggregated or individual -- about others' RSU grants. Similarly, you can only see full compensation information if you choose to share full compensation information.</p>
+            <p>A: We are iterating on this, but the philosophy is that we will display information of other users to you to the extent that you share that same type of information. For example, if you choose not to share your RSU grant, then you will not be able to view any information -- aggregated or individual -- about others' RSU grants. Similarly, you can only see full, raw compensation information if you choose to share full compensation information.</p>
             </div>
 
             <div className='faq-item' id='security'>
             <p>Q: Is it safe to share compensation information with your service?</p>
-            <p>A: Our service is SSL encrypted, and we do not associated PII such as your email address with the compensation data that you provide. That said, whether you feel comfortable sharing really depends on what scenario you are worried about. Please see below for answers to more detailed questions.</p>
+            <p>A: Our service is SSL encrypted, and we do not associate obviously identifying data such as your email address with the compensation data that you provide. That said, whether you feel comfortable sharing really depends on what scenario you are worried about. Please see below for answers to more detailed questions on de-identification.</p>
             </div>
 
             <div className='faq-item' id='deidentification'>
             <p>Q: Can my compensation data potentially identify me?</p>
-            <p>A: Unfortunately, it can. As a simple example, if you choose the Full sharing setting and your title is "The One and Only Superninja named Dan Auerbach Who Works At Microsoft" then this is pretty obviously identifying. There are more subtle identification attacks as well. Please DO NOT SHARE information at all that you would never, ever want tied back to you.</p>
+            <p>A: Unfortunately, the information you provide might be used to identify you. As a simple example, if you choose the Full sharing setting and your title is "The One and Only Superninja named Dan Auerbach Who Works At Microsoft" then this is pretty obviously identifying. There are more subtle identification attacks as well. Please do not share information that you would never, ever want tied back to you.</p>
             </div>
 
             <div className='faq-item' id='who-can-see'>

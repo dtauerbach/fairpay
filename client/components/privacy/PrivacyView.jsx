@@ -10,7 +10,7 @@ module.exports = React.createClass({
           </p>
 
           <p>
-Welcome to FairPay! (a.k.a. "we" or "us" or the "Company"). We are excited to have you as user and member of the community. The following terms and conditions (collectively, these "Terms of Service") apply to your use of www.myfairpay.org, including any content, functionality and services offered on or via myfairpay.org (the "Website"). The Terms of Service also include our Privacy Policy, that you can review here.
+Welcome to FairPay! (a.k.a. "we" or "us" or the "Company"). We are excited to have you as user and member of the community. The following terms and conditions (collectively, these "Terms of Service") apply to your use of www.myfairpay.org, including any content, functionality and services offered on or via www.myfairpay.org (the "Website"). The Terms of Service also include our Privacy Policy, that you can review below.
           </p>
 
           <p>
