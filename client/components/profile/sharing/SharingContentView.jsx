@@ -65,7 +65,7 @@ module.exports = React.createClass({
 
   render: function() {
     return (
-      <div className="profile-sharing-container col-md-8">
+      <div className="profile-sharing-container col-md-8 centered">
           {this.constructInputFields()}
           {this.constructExtraDiv(this.getCheckedSetting())}
       </div>
