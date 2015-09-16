@@ -35,14 +35,14 @@ module.exports = React.createClass({
 
   render: function() {
     var brandImageSource = this.props.origin + '/images/fairpay-logo-beta.png';
-    var brandImage = <a href='/'>
+    var brandImage = <NavItemLink to='about'>
                        <img src={brandImageSource} height='60px' alt='FairPay' />
-                     </a>;
+                     </NavItemLink>;
     return (
       <Navbar brand={brandImage} toggleNavKey={0} fixedTop>
         <CollapsibleNav eventKey={0}>
           <Nav bsStyle='pills' pullRight>
-            <NavItem href='/#about'> About </NavItem>
+            <NavItemLink to='about'> About </NavItemLink>
             <NavItemLink to='profile'> My Profile </NavItemLink>
             <NavItemLink to='data'> Market Data </NavItemLink>
             <NavItemLink to='faq'> FAQ </NavItemLink>
